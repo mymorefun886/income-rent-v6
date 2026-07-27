@@ -1,0 +1,289 @@
+# Organization Aliases for Entity Resolution
+# Phase 10.3 v1.2.2 - Alias Expansion Layer
+#
+# These are organization abbreviations commonly used in Hong Kong school names.
+# During Entity Resolution, abbreviations are expanded BEFORE name matching.
+#
+# Example:
+#   CHSC: "PLK Laws Foundation College"
+#   EDB:  "PO LEUNG KUK LAWS FOUNDATION COLLEGE"
+#   After expansion: "PO LEUNG KUK Laws Foundation College" → exact match
+
+organizations:
+  # === Major Charities ===
+  - canonical: "PO LEUNG KUK"
+    aliases:
+      - "PLK"
+    notes: "保良局"
+
+  - canonical: "TUNG WAH GROUP OF HOSPITALS"
+    aliases:
+      - "TWGHs"
+      - "TWGHS"
+      - "TUNG WAH GROUP"
+      - "TW"
+    notes: "東華三院"
+
+  - canonical: "POK OI HOSPITAL"
+    aliases:
+      - "POH"
+      - "POK OI"
+    notes: "博愛醫院"
+
+  - canonical: "YAN CHAI HOSPITAL"
+    aliases:
+      - "YCH"
+    notes: "仁濟醫院"
+
+  - canonical: "HONG KONG TAOIST ASSOCIATION"
+    aliases:
+      - "HKTA"
+    notes: "香港道教聯合會"
+
+  # === Christian Organizations ===
+  - canonical: "CATHOLIC DIOCESE OF HONG KONG"
+    aliases:
+      - "CCC"
+      - "CATHOLIC DIOCESE"
+    notes: "天主教香港教區"
+
+  - canonical: "THE CHURCH OF CHRIST IN CHINA"
+    aliases:
+      - "CCCC"
+      - "CHURCH OF CHRIST IN CHINA"
+    notes: "中華基督教會"
+
+  - canonical: "EVANGELICAL LUTHERAN CHURCH OF HONG KONG"
+    aliases:
+      - "ELCHK"
+      - "EVANGELICAL LUTHERAN"
+    notes: "基督教香港信義會"
+
+  - canonical: "METHODIST CHURCH HONG KONG"
+    aliases:
+      - "METHODIST CHURCH"
+    notes: "香港基督教循道衛理聯合教會"
+
+  - canonical: "RHENISH CHURCH"
+    aliases:
+      - "RHENISH"
+    notes: "禮賢會"
+
+  - canonical: "SALVATION ARMY"
+    aliases:
+      - "SALVATION ARMY"
+    notes: "救世軍"
+
+  - canonical: "STEWARDS"
+    aliases:
+      - "STEWARDS"
+    notes: "基督教勵行會"
+
+  # === Anglican (Sheng Kung Hui) ===
+  - canonical: "SHENG KUNG HUI"
+    aliases:
+      - "SKH"
+      - "S.K.H."
+    notes: "聖公會"
+
+  # === Government ===
+  - canonical: "NEW TERRITORIES HEUNG YEE KUK"
+    aliases:
+      - "NTHYK"
+      - "N.T. HEUNG YEE KUK"
+      - "NT HEUNG YEE KUK"
+    notes: "新界鄉議局"
+
+  # === Universities ===
+  - canonical: "HONG KONG BAPTIST UNIVERSITY"
+    aliases:
+      - "HKBU"
+    notes: "香港浸會大學"
+
+  - canonical: "CHINESE UNIVERSITY OF HONG KONG"
+    aliases:
+      - "CUHK"
+    notes: "香港中文大學"
+
+  # === Associations ===
+  - canonical: "HONG KONG YOUNG WOMEN'S CHRISTIAN ASSOCIATION"
+    aliases:
+      - "YWCA"
+      - "HKYWCA"
+    notes: "香港基督教女青年會"
+
+  - canonical: "YOUNG MEN'S CHRISTIAN ASSOCIATION OF HONG KONG"
+    aliases:
+      - "YMCA"
+      - "HKYMCA"
+    notes: "香港中華基督教青年會"
+
+  - canonical: "YUEN LONG PUBLIC MIDDLE SCHOOL ALUMNI ASSOCIATION"
+    aliases:
+      - "YLPMSAA"
+    notes: "元朗公立中學校友會"
+
+  - canonical: "HONG KONG WEAVING MILLS ASSOCIATION"
+    aliases:
+      - "HKWMA"
+    notes: "香港織造業同業公會"
+
+  - canonical: "HONG KONG SZE YAP COMMERCIAL AND INDUSTRIAL ASSOCIATION"
+    aliases:
+      - "HKSYC AND IA"
+      - "HKSYC AND I.A."
+      - "HKSYC AND IA"
+      - "SZE YAP COMMERCIAL AND INDUSTRIAL ASSOCIATION"
+    notes: "香港商業及工業協會"
+
+  - canonical: "SHAP PAT HEUNG RURAL COMMITTEE"
+    aliases:
+      - "SPHRC"
+    notes: "十八鄉鄉事委員會"
+
+  - canonical: "NEW LIFE SCHOOLS INCORPORATION"
+    aliases:
+      - "NLSI"
+    notes: "新生命教育協會"
+
+  - canonical: "CHRISTIAN NATIONALS EVANGELISM COMMISSION"
+    aliases:
+      - "CNEC"
+    notes: "中華基督教會全國傳道委員會"
+
+  - canonical: "HONG KONG COUNCIL OF THE CHURCH OF CHRIST IN CHINA"
+    aliases:
+      - "HKCCCU"
+    notes: "中華基督教會香港區會"
+
+  # === Other Organizations ===
+  - canonical: "HONG KONG AND MACAU LUTHERAN CHURCH"
+    aliases:
+      - "HKMLC"
+    notes: "香港澳門信義會"
+
+  - canonical: "HONG KONG AND KOWLOON CHIU CHOW PUBLIC ASSOCIATION"
+    aliases:
+      - "HK AND KLN CHIU CHOW"
+      - "HK AND KLN"
+    notes: "港九潮州公會"
+
+  - canonical: "HONG KONG FEDERATION OF ALUMNI ASSOCIATIONS"
+    aliases:
+      - "HKFAA"
+      - "FEDERATION OF ALUMNI ASSOCIATIONS"
+    notes: "香港中文大學校友會聯會"
+
+  - canonical: "HONG KONG INSTITUTE OF CONTEMPORARY CULTURE"
+    aliases:
+      - "HKICC"
+    notes: "香港當代文化中心"
+
+  - canonical: "HONG KONG CHINESE WOMEN'S CLUB"
+    aliases:
+      - "HKCWC"
+    notes: "香港中國婦女會"
+
+  - canonical: "THE PENTECOSTAL HOLINESS CHURCH"
+    aliases:
+      - "PHC"
+    notes: "五旬節聖潔會"
+
+  - canonical: "WELLINGTON EDUCATION ORGANIZATION"
+    aliases:
+      - "WEO"
+    notes: "威靈頓教育機構"
+
+  - canonical: "SHUN TAK FRATERNAL ASSOCIATION"
+    aliases:
+      - "STFA"
+    notes: "順德聯誼總會"
+
+  - canonical: "TEXTILE INSTITUTE AMERICAN CHAMBER OF COMMERCE"
+    aliases:
+      - "TIACC"
+    notes: "紡織學會美國商會"
+
+  - canonical: "YUEN LONG CATHOLIC"
+    aliases:
+      - "YLC"
+    notes: "元朗天主教"
+
+  - canonical: "MA KAM MING CHARITABLE FOUNDATION"
+    aliases:
+      - "MKMCF"
+    notes: "馬錦明慈善基金"
+
+  - canonical: "AD AND FD"
+    aliases:
+      - "AD&FD"
+      - "ADANDFD"
+    notes: "Agriculture, Fisheries and Development"
+
+  - canonical: "GCC AND ITKD"
+    aliases:
+      - "GCC&ITKD"
+    notes: "Global Christian Council and International Taoist KD"
+
+  - canonical: "YAN PING INDUSTRIAL AND COMMERCIAL ASSOCIATION"
+    aliases:
+      - "YPI AND CA"
+    notes: "工商業協會"
+
+  - canonical: "SAN WUI COMMERCIAL SOCIETY"
+    aliases:
+      - "SAN WUI"
+    notes: "新會商會"
+
+  - canonical: "LUNG KONG WORLD FEDERATION SCHOOL LIMITED"
+    aliases:
+      - "LUNG Kong WFSL"
+    notes: "龍岡世界學校有限公司"
+
+  - canonical: "HONG KONG S Y C AND I A"
+    aliases:
+      - "HKSYC AND IA"
+      - "HKSYC AND I.A."
+    notes: "香港商業及工業協會"
+
+  - canonical: "QUEEN ELIZABETH SCHOOL OLD STUDENTS ASSOCIATION"
+    aliases:
+      - "QESOSA"
+      - "QUEEN ELIZABETH SCHOOL OSA"
+    notes: "伊利沙伯中學舊生會"
+
+  - canonical: "EVANGELIZE CHINA FELLOWSHIP"
+    aliases:
+      - "ECF"
+    notes: "中國傳道會"
+
+  - canonical: "HONG KONG RED CROSS"
+    aliases:
+      - "HKRC"
+    notes: "香港紅十字會"
+
+  - canonical: "CARITAS HONG KONG"
+    aliases:
+      - "CARITAS"
+    notes: "香港明愛"
+
+  - canonical: "SIK SIK YUEN"
+    aliases:
+      - "SIK SIK YUEN"
+    notes: "嗇色園"
+
+  - canonical: "THE YUEN YUEN INSTITUTE"
+    aliases:
+      - "YUEN YUEN INSTITUTE"
+    notes: "圓玄學院"
+
+  - canonical: "MFBM NEI MING CHAN LUI CHUNG TAK MEMORIAL"
+    aliases:
+      - "MFBM"
+    notes: "妙法寺劉昌明紀念"
+
+# Matching rules:
+# 1. Abbreviation must be at START of name or after common prefixes (e.g., "The", "Hong Kong")
+# 2. Abbreviation must be followed by a space or end of string
+# 3. Case-insensitive matching
+# 4. Longest match wins (e.g., "PO LEUNG KUK" before "PLK")

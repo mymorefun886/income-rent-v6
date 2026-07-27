@@ -1,0 +1,291 @@
+{
+  "snapshot_metadata": {
+    "domain": "education",
+    "version": "1.1.0",
+    "snapshot_date": "2026-07-27",
+    "phase": "Phase 10.2 — Education Data Foundation",
+    "description": "Architecture snapshot for Education Engine v1.1.0. Phase 10.2 adds EDB Master Registry, geo intelligence, and per-field evidence provenance. No breaking changes to v1.0 contracts."
+  },
+
+  "contracts": {
+    "decision_object": {
+      "version": "1.0",
+      "file": "core/skills/education/presentation/contract.py",
+      "status": "FROZEN",
+      "fields": ["schema_version", "intent", "entities", "locale", "presentation", "trace_id", "user_id", "query"]
+    },
+    "ranking_contract": {
+      "version": "1.0",
+      "file": "core/skills/education/data/ranking_contract_v1.json",
+      "status": "FROZEN",
+      "formula": "total = constraint * 0.5 + academic_signal * 0.25 + preference_match * 0.15 + evidence * 0.10",
+      "immutable": true,
+      "note": "Phase 10.2: Geo distance folded into preference_match (NOT new weight — avoids v2.0 bump)"
+    },
+    "trace_schema": {
+      "version": "1.0",
+      "file": "core/skills/education/presentation/trace_steps.py",
+      "status": "FROZEN",
+      "steps": 8,
+      "step_names": ["intent_detection", "entity_resolution", "constraint_extraction", "candidate_retrieval", "constraint_filtering", "ranking", "reasoning_generation", "presentation"]
+    },
+    "error_contract": {
+      "version": "1.0",
+      "file": "core/skills/education/presentation/error_contract.py",
+      "status": "FROZEN",
+      "codes": 6,
+      "code_list": ["ENTITY_NOT_FOUND", "NO_RESULTS", "INVALID_QUERY", "TRACE_FAILED", "LOCALE_DETECTION_FAILED", "KNOWLEDGE_UNAVAILABLE"]
+    },
+    "feedback_event": {
+      "version": "1.0",
+      "file": "core/skills/education/presentation/contract.py (FeedbackEvent)",
+      "status": "FROZEN",
+      "feedback_types": ["accepted", "rejected", "shortlisted", "considering", "visited", "enrolled"],
+      "reasons": ["too_far", "tuition", "academic_fit", "school_culture", "child_preference", "other"]
+    }
+  },
+
+  "data_sources": [
+    {
+      "name": "EDB",
+      "full_name": "Education Bureau",
+      "description": "Official School Master Registry (data.gov.hk)",
+      "dataset": "school_location_and_data",
+      "role": "School Master Registry",
+      "schools_count": "~600+",
+      "fields": ["school_no", "name_en", "name_zh", "address", "latitude", "longitude", "phone", "fax", "email", "website", "school_level", "finance_type", "religion", "district"],
+      "credibility": 9.0,
+      "status": "ACTIVE (Phase 10.2)",
+      "has_fee_data": false,
+      "has_academic_data": false,
+      "has_coordinates": true,
+      "has_website": true
+    },
+    {
+      "name": "CHSC",
+      "full_name": "Committee on Home-School Co-operation",
+      "description": "Hong Kong secondary school profiles (Academic Intelligence)",
+      "dataset": "secondary_school_profiles",
+      "role": "Academic Intelligence",
+      "schools_count": 441,
+      "fields": ["district", "school_type", "student_gender", "language_policy", "academic_signal_*", "facility_*", "fees_s1-s6"],
+      "credibility": 8.0,
+      "status": "ACTIVE"
+    },
+    {
+      "name": "HKET",
+      "full_name": "HK Economic Times",
+      "description": "School popularity / parent signal",
+      "dataset": "school_popularity",
+      "role": "Popularity Signal",
+      "credibility": 5.0,
+      "status": "PLANNED"
+    },
+    {
+      "name": "KGP",
+      "full_name": "Kindergarten Profile",
+      "description": "Kindergarten intelligence",
+      "role": "Kindergarten Intelligence",
+      "credibility": 8.0,
+      "status": "PLANNED"
+    }
+  ],
+
+  "vector_collection": {
+    "name": "knowledge_education_v2",
+    "provider": "Qdrant",
+    "points": "~1041 (441 CHSC + ~600 EDB)",
+    "description": "Education knowledge vectors for semantic search. Multi-source: CHSC (academic) + EDB (master registry)"
+  },
+
+  "database_schema": {
+    "tables": [
+      "memory.recommendation_session",
+      "memory.recommendation_result",
+      "memory.recommendation_trace",
+      "memory.recommendation_feedback",
+      "memory.school_alias",
+      "memory.preference_memory",
+      "memory.school_entity_master",
+      "memory.school_cost_profile",
+      "memory.school_entity_mapping"
+    ],
+    "migrations": [
+      {
+        "version": "v10.1.7-d",
+        "file": "ingestion/migration_v10.1.7-d.sql",
+        "description": "Add locale, alias_type, confidence to school_alias; add locale to recommendation_feedback"
+      },
+      {
+        "version": "v10.1.9",
+        "file": "ingestion/migration_v10.1.9_freeze.sql",
+        "description": "FK constraints (result/trace/feedback → session) + indexes"
+      },
+      {
+        "version": "v10.2",
+        "file": "ingestion/migration_v10.2_school_master.sql",
+        "description": "School Master Registry: school_entity_master, school_cost_profile, school_entity_mapping tables + helper functions"
+      }
+    ]
+  },
+
+  "golden_tests": {
+    "total": 8,
+    "file": "tests/golden/test_golden_cases.py",
+    "cases": [
+      {"id": 1, "name": "entity_resolution_basic", "input": "比較英皇書院和喇沙書院"},
+      {"id": 2, "name": "constraint_extraction_district_gender", "input": "九龍城男校推薦"},
+      {"id": 3, "name": "memory_isolation_rejected_school", "input": "推薦男校 (after rejecting DBS)"},
+      {"id": 4, "name": "locale_english", "input": "Compare King's College and La Salle College"},
+      {"id": 5, "name": "locale_mixed_cjk_priority", "input": "Compare 英皇書院 and La Salle"},
+      {"id": 6, "name": "feedback_natural_language", "input": "呢間太遠"},
+      {"id": 7, "name": "no_results_graceful", "input": "火星中學推薦"},
+      {"id": 8, "name": "trace_linkage", "input": "九龍城英文中學推薦"}
+    ]
+  },
+
+  "operational_gates": {
+    "gate_1_migration_idempotent": {
+      "status": "PASS",
+      "file": "ingestion/migration_v10.1.7-d.sql, ingestion/migration_v10.1.9_freeze.sql, ingestion/migration_v10.2_school_master.sql"
+    },
+    "gate_2_golden_test_ci": {
+      "status": "PASS",
+      "file": "tests/golden/test_golden_cases.py"
+    },
+    "gate_3_ranking_contract_frozen": {
+      "status": "PASS",
+      "file": "core/skills/education/data/ranking_contract_v1.json"
+    },
+    "gate_4_decision_object_backward_compat": {
+      "status": "PASS",
+      "file": "core/skills/education/presentation/contract.py"
+    },
+    "gate_5_recovery_drill": {
+      "status": "PASS",
+      "file": "scripts/recovery_drill.sh"
+    }
+  },
+
+  "supported_locales": ["zh-TW", "en"],
+
+  "components": {
+    "knowledge_layer": {
+      "status": "FROZEN",
+      "description": "CHSC v2 data (441 schools) + EDB Master Registry (~600 schools) via Qdrant"
+    },
+    "entity_intelligence": {
+      "status": "ENHANCED (Phase 10.2)",
+      "description": "Multi-source entity resolution: EDB anchor → identity map → alias → fuzzy match"
+    },
+    "constraint_engine": {
+      "status": "FROZEN",
+      "description": "Query → structured constraints (district, gender, school_type, language, interests)"
+    },
+    "ranking_engine": {
+      "status": "ENHANCED (Phase 10.2)",
+      "description": "4-factor scoring + geo distance (folded into preference_match, NOT new weight)"
+    },
+    "evidence_trace": {
+      "status": "ENHANCED (Phase 10.2)",
+      "description": "Per-field source tracking: each field can have its own source (EDB, CHSC, etc.)"
+    },
+    "decision_object": {
+      "status": "FROZEN",
+      "description": "Response contract (schema_version=1.0)"
+    },
+    "trace_system": {
+      "status": "FROZEN",
+      "description": "8-step pipeline trace"
+    },
+    "feedback_memory": {
+      "status": "PRODUCTION",
+      "description": "Preference accumulation (no ranking weight mutation)"
+    },
+    "locale_layer": {
+      "status": "PRODUCTION",
+      "description": "Multi-signal locale resolution (user_pref → telegram → query → default)"
+    },
+    "recovery": {
+      "status": "VERIFIED",
+      "description": "Backup / recovery drill script"
+    },
+    "governance": {
+      "status": "ENHANCED (Phase 10.2)",
+      "description": "CHANGE_POLICY.md updated with Phase 10.2 allowed changes"
+    },
+    "school_master_registry": {
+      "status": "ADDED (Phase 10.2)",
+      "description": "EDB as School Master Registry: official identity, geo, website"
+    },
+    "geo_intelligence": {
+      "status": "ADDED (Phase 10.2)",
+      "description": "Haversine distance scoring folded into preference_match"
+    }
+  },
+
+  "file_manifest": {
+    "core/skills/education/data/": [
+      "ranking_contract_v1.json",
+      "ranking_contract.py",
+      "ranking_config.py",
+      "evidence_tracer.py"
+    ],
+    "core/skills/education/presentation/": [
+      "contract.py",
+      "trace_steps.py",
+      "error_contract.py",
+      "locale.py",
+      "zh_tw.py",
+      "en.py",
+      "formatter.py",
+      "reasoning.py"
+    ],
+    "core/skills/education/entity/": [
+      "comparison.py",
+      "alias_matcher.py"
+    ],
+    "core/skills/education/engine/": [
+      "__init__.py",
+      "recommendation.py",
+      "feedback_capture.py",
+      "constraint_extractor.py",
+      "matching.py",
+      "ranking.py",
+      "profile.py"
+    ],
+    "ingestion/": [
+      "migration_v10.1.7-d.sql",
+      "migration_v10.1.9_freeze.sql",
+      "migration_v10.2_school_master.sql",
+      "edb_ingestion.py"
+    ],
+    "tests/golden/": [
+      "test_golden_cases.py"
+    ],
+    "scripts/": [
+      "recovery_drill.sh"
+    ],
+    "docs/": [
+      "education_engine_v1.0.0_release.md",
+      "phase_10_1_9_freeze_checklist.md",
+      "golden_test_ci_gate.md",
+      "CHANGE_POLICY.md",
+      "hermes_decision_framework_blueprint.md",
+      "architecture_snapshot_v1.0.json"
+    ]
+  },
+
+  "future_reference": {
+    "blueprint": "docs/hermes_decision_framework_blueprint.md",
+    "change_policy": "docs/CHANGE_POLICY.md",
+    "next_phases": [
+      "Phase 10.2.1 — Feedback UX (👍 喜歡 / 👎 不考慮 / 📌 收藏)",
+      "Phase 10.2.2 — Decision Journey (shortlist → visited → chosen → outcome)",
+      "Phase 10.3 — Hermes Decision Framework SDK (BaseEntityResolver, BaseConstraintEngine, etc.)",
+      "Phase 11 — School Website Agent (crawl websites for admission, tuition, events)",
+      "Commerce Adapter",
+      "Investment Adapter"
+    ]
+  }
+}

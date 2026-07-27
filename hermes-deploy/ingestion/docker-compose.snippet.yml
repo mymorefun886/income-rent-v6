@@ -1,0 +1,31 @@
+  # ============================================================
+  # Hermes Ingestion — School Data Pipeline (Phase 10.1)
+  # ============================================================
+  hermes-ingestion:
+    build:
+      context: /volume3/hermes/source/ingestion
+      dockerfile: Dockerfile
+    image: hermes-ingestion:latest
+    container_name: hermes-ingestion
+    restart: unless-stopped
+    volumes:
+      - /volume3/hermes/source/ingestion:/app
+      - /volume1/hermes-cold/education/raw:/data/ingestion:ro
+    environment:
+      POSTGRES_HOST: hermes-postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: hermes
+      POSTGRES_USER: hermes
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      QDRANT_HOST: hermes-qdrant
+      QDRANT_PORT: "6333"
+      CSV_MOUNT_PATH: /data/ingestion
+    ports:
+      - "8011:8000"
+    networks:
+      - hermes-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started

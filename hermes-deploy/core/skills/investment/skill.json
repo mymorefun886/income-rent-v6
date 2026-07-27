@@ -1,0 +1,7 @@
+{
+  "name": "investment",
+  "version": "0.1.0",
+  "description": "Investment domain — market analysis, stock research, portfolio insights",
+  "domains": ["investment"],
+  "intents": ["investment", "stock", "market", "portfolio"]
+}

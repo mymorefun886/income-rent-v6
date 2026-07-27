@@ -1,0 +1,61 @@
+# Hermes Studio + Custom Bridge — Web Dashboard
+# Deploy alongside existing hermes-deploy stack
+# Usage: docker compose -f docker-compose.yml -f docker-compose.studio.yml up -d
+
+services:
+  custom-bridge:
+    build:
+      context: /volume3/hermes/source/custom-bridge
+      dockerfile: Dockerfile
+    image: hermes-custom-bridge:latest
+    container_name: hermes-custom-bridge
+    restart: unless-stopped
+    environment:
+      AGENT_CHAT_URL: http://hermes-agent:8000/agent/chat
+      BRIDGE_LISTEN_HOST: "0.0.0.0"
+      BRIDGE_LISTEN_PORT: "18780"
+    networks:
+      - hermes-net
+
+  openai-proxy:
+    build:
+      context: /volume3/hermes/source/openai-proxy
+      dockerfile: Dockerfile
+    image: hermes-openai-proxy:latest
+    container_name: hermes-openai-proxy
+    restart: unless-stopped
+    environment:
+      AGENT_CHAT_URL: http://hermes-agent:8000/agent/chat
+      PORT: "18781"
+    networks:
+      - hermes-net
+
+  hermes-studio:
+    image: ekkoye8888/hermes-web-ui:v0.6.33
+    container_name: hermes-studio
+    restart: unless-stopped
+    volumes:
+      - /volume3/hermes/hermes-studio-data:/home/agent/.hermes
+      - /volume3/hermes/hermes-studio-data/web-ui:/home/agent/.hermes-web-ui
+    environment:
+      PORT: "6060"
+      HERMES_HOME: /home/agent/.hermes
+      HERMES_WEB_UI_MANAGED_GATEWAY: "0"
+      HERMES_AGENT_BRIDGE_ENDPOINT: tcp://hermes-custom-bridge:18780
+      GATEWAY_URL: http://hermes-gateway:8000
+      HERMES_GATEWAY_URL: http://hermes-gateway:8000
+      OPENCODE_GO_API_KEY: ${OPENCODE_GO_API_KEY}
+      NODE_ENV: production
+    ports:
+      - "6060:6060"
+    networks:
+      - hermes-net
+    depends_on:
+      custom-bridge:
+        condition: service_started
+      openai-proxy:
+        condition: service_started
+
+networks:
+  hermes-net:
+    external: true

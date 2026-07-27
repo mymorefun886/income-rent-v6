@@ -1,0 +1,7 @@
+{
+  "name": "personal",
+  "version": "0.1.0",
+  "description": "Personal assistant — calendar, reminders, family management",
+  "domains": ["personal", "family"],
+  "intents": ["personal", "family", "calendar", "reminder"]
+}

@@ -1,0 +1,85 @@
+{
+  "domain": "education",
+  "contract_type": "ranking_formula",
+  "version": "1.0",
+  "status": "FROZEN",
+  "description": "Education Engine v1.0 Ranking Contract — DO NOT MODIFY without version bump",
+
+  "weights": {
+    "constraint": 0.5,
+    "academic_signal": 0.25,
+    "preference_match": 0.15,
+    "evidence": 0.10
+  },
+
+  "immutable": true,
+  "freeze_reason": "Phase 10.1.9 Freeze — ranking weights are part of the Decision Contract. Feedback must NOT mutate these weights.",
+
+  "formula": "total_score = constraint_score * 0.5 + academic_signal_score * 0.25 + preference_match_score * 0.15 + evidence_score * 0.10",
+
+  "scoring_components": {
+    "constraint": {
+      "weight": 0.5,
+      "description": "How well school satisfies family hard constraints (district, fee, language)",
+      "source": "_score_constraints() in ranking.py",
+      "factors": ["district_match", "fee_within_budget", "language_policy"]
+    },
+    "academic_signal": {
+      "weight": 0.25,
+      "description": "Match between query interests and school academic signals (v2 schema)",
+      "source": "_score_academic_signals() in ranking.py",
+      "factors": ["academic_signal_science_availability", "academic_signal_language_strength", "academic_signal_sports", "academic_signal_music", "academic_signal_arts"]
+    },
+    "preference_match": {
+      "weight": 0.15,
+      "description": "Child profile fit (gender, extracurricular interests, facilities)",
+      "source": "_score_preference_match() in ranking.py",
+      "factors": ["gender_match", "facility_*_match"]
+    },
+    "evidence": {
+      "weight": 0.10,
+      "description": "Evidence quality (diverse sources = higher score)",
+      "source": "_score_evidence() in ranking.py",
+      "factors": ["source_diversity", "evidence_count"]
+    }
+  },
+
+  "feedback_rule": {
+    "description": "Feedback affects PREFERENCE MEMORY, not ranking weights",
+    "correct_flow": "Feedback → Preference Memory → Context Adjustment",
+    "forbidden_flow": "Feedback → Ranking Weight Mutation",
+    "phase_11_note": "Phase 11 Learning may adjust constraint extraction, NOT these weights"
+  },
+
+  "presets": {
+    "balanced": {
+      "version": "v1",
+      "weights": {"constraint": 0.5, "academic_signal": 0.25, "preference_match": 0.15, "evidence": 0.10},
+      "note": "DEFAULT — same as frozen contract"
+    },
+    "academic_first": {
+      "version": "v2-academic",
+      "weights": {"constraint": 0.35, "academic_signal": 0.4, "preference_match": 0.15, "evidence": 0.10},
+      "note": "Preset for high-budget families — NOT the frozen contract"
+    },
+    "practical": {
+      "version": "v2-practical",
+      "weights": {"constraint": 0.6, "academic_signal": 0.15, "preference_match": 0.15, "evidence": 0.10},
+      "note": "Preset for budget-constrained — NOT the frozen contract"
+    },
+    "evidence_heavy": {
+      "version": "v2-evidence",
+      "weights": {"constraint": 0.3, "academic_signal": 0.2, "preference_match": 0.1, "evidence": 0.4},
+      "note": "Preset for evidence-focused — NOT the frozen contract"
+    }
+  },
+
+  "history": [
+    {
+      "version": "1.0",
+      "date": "2026-07-27",
+      "phase": "Phase 10.1.9 Freeze",
+      "change": "Initial freeze — constraint 0.5, academic 0.25, preference 0.15, evidence 0.10"
+    }
+  ]
+}

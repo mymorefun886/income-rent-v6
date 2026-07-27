@@ -1,0 +1,470 @@
+{
+  "version": "2.0",
+  "last_updated": "2026-07-27",
+  "description": "Phase 10.2 Golden Test Cases — Graph + Admission + Evidence Integration",
+
+  "metadata": {
+    "phase": "Phase 10.2",
+    "layer": "Graph + Admission + Evidence",
+    "prerequisites": [
+      "EDB Master Registry ingested (~600 schools)",
+      "CHSC Academic Intelligence ingested (441 schools)",
+      "Entity Resolution validated (EDB ↔ CHSC mapping)",
+      "Through-train relationships loaded",
+      "SSPA Secondary Network loaded",
+      "POA Primary Network loaded",
+      "KG Vacancy data loaded (latest snapshot)"
+    ]
+  },
+
+  "test_cases": [
+    {
+      "id": "GRAPH-001",
+      "name": "Through-train School Query",
+      "category": "Layer 3 — Relationship Graph",
+      "difficulty": "medium",
+      "input": {
+        "query": "播道書院係唔係一條龍學校？",
+        "user_id": "test_graph_001",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "school_lookup",
+        "entities": ["播道書院"],
+        "graph_traversal": {
+          "source_school": "播道書院 (小學部)",
+          "relationship_type": "through_train",
+          "target_school": "播道書院 (中學部)",
+          "group_id": "匹配 EDB through_train group_id"
+        },
+        "response_should_contain": [
+          "一條龍",
+          "小學直升中學",
+          "播道書院"
+        ],
+        "response_should_not_contain": [
+          "唔係一條龍",
+          "需要考試"
+        ],
+        "sql_validation": {
+          "query": "SELECT r.relationship_type, m2.school_name_en FROM memory.school_relationship r JOIN memory.school_entity_master m1 ON r.source_school_id = m1.id JOIN memory.school_entity_master m2 ON r.target_school_id = m2.id WHERE m1.school_name_en ILIKE '%Evangel%' AND r.relationship_type = 'through_train';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "GRAPH-002",
+      "name": "Feeder School Discovery",
+      "category": "Layer 3 — Relationship Graph",
+      "difficulty": "medium",
+      "input": {
+        "query": "邊間小學係聖保羅男女中學嘅直屬小學？",
+        "user_id": "test_graph_002",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "school_lookup",
+        "entities": ["聖保羅男女中學"],
+        "graph_traversal": {
+          "target_school": "聖保羅男女中學",
+          "relationship_type": "feeder",
+          "direction": "reverse (find source schools pointing to target)"
+        },
+        "response_should_contain": [
+          "聖保羅男女中學附屬小學",
+          "直屬"
+        ],
+        "sql_validation": {
+          "query": "SELECT m1.school_name_en, r.relationship_type FROM memory.school_relationship r JOIN memory.school_entity_master m1 ON r.source_school_id = m1.id JOIN memory.school_entity_master m2 ON r.target_school_id = m2.id WHERE m2.school_name_en ILIKE '%St. Paul%Co-ed%' AND r.relationship_type = 'feeder';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "GRAPH-003",
+      "name": "Same Organization Schools",
+      "category": "Layer 3 — Relationship Graph",
+      "difficulty": "hard",
+      "input": {
+        "query": "基督教香港信義會辦咗幾多間學校？",
+        "user_id": "test_graph_003",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "school_lookup",
+        "entities": ["基督教香港信義會"],
+        "graph_traversal": {
+          "relationship_type": "affiliated",
+          "sponsoring_body": "基督教香港信義會"
+        },
+        "response_should_contain": [
+          "信義會",
+          "辦學團體"
+        ],
+        "sql_validation": {
+          "query": "SELECT COUNT(*) FROM memory.school_relationship r JOIN memory.school_entity_master m1 ON r.source_school_id = m1.id WHERE r.relationship_type = 'affiliated' AND m1.school_name_en ILIKE '%Lutheran%';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "ADM-001",
+      "name": "Secondary Net Discovery from Address",
+      "category": "Layer 2 — Admission Structure",
+      "difficulty": "hard",
+      "input": {
+        "query": "我住沙田廣源邨，中學派乜嘢網？",
+        "user_id": "test_adm_001",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "admission_query",
+        "entities": ["沙田", "廣源邨"],
+        "admission_logic": {
+          "step_1": "Resolve address → Primary Net (e.g., 91 for 沙田廣源邨)",
+          "step_2": "Lookup secondary schools serving that primary net",
+          "step_3": "Return list of eligible secondary schools"
+        },
+        "response_should_contain": [
+          "校網",
+          "沙田",
+          "中學"
+        ],
+        "sql_validation": {
+          "query": "SELECT DISTINCT sn.secondary_net FROM memory.school_primary_network pn JOIN memory.school_secondary_network sn ON pn.net_number = sn.primary_net WHERE pn.areas ILIKE '%Kwong Yuen%' OR pn.district ILIKE '%Sha Tin%';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "ADM-002",
+      "name": "Primary Net Coverage",
+      "category": "Layer 2 — Admission Structure",
+      "difficulty": "medium",
+      "input": {
+        "query": "校網 46 覆蓋邊啲地區？",
+        "user_id": "test_adm_002",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "admission_query",
+        "entities": ["校網 46"],
+        "admission_logic": {
+          "lookup": "POA Primary Network table",
+          "net_number": "46"
+        },
+        "response_should_contain": [
+          "46",
+          "地區"
+        ],
+        "sql_validation": {
+          "query": "SELECT areas FROM memory.school_primary_network WHERE net_number = '46';",
+          "expect_rows": "== 1"
+        }
+      }
+    },
+    {
+      "id": "ADM-003",
+      "name": "Band 1 Boy Schools in Kowloon City Net",
+      "category": "Layer 2 + Layer 4 Integration",
+      "difficulty": "hard",
+      "input": {
+        "query": "九龍城校網 Band 1 男校有咩選擇？",
+        "user_id": "test_adm_003",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "recommendation",
+        "entities": ["九龍城", "Band 1", "男校"],
+        "admission_logic": {
+          "step_1": "Resolve district → Primary Net (e.g., 34, 35, 41 for Kowloon City)",
+          "step_2": "Filter secondary schools by academic signal (Band 1)",
+          "step_3": "Filter by gender (boys)",
+          "step_4": "Return ranked list"
+        },
+        "response_should_contain": [
+          "男校",
+          "九龍城",
+          "Band 1"
+        ],
+        "sql_validation": {
+          "query": "SELECT m.school_name_en, m.district FROM memory.school_entity_master m JOIN memory.school_profile_evidence p ON m.id = p.school_master_id WHERE m.district ILIKE '%Kowloon City%' AND p.profile_key = 'student_gender' AND p.profile_value ILIKE '%Boys%';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "EVID-001",
+      "name": "KG Vacancy Query with Evidence",
+      "category": "Layer 5 — Availability Signal",
+      "difficulty": "medium",
+      "input": {
+        "query": "九龍塘邊間幼稚園 K1 仲有位？",
+        "user_id": "test_evid_001",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "availability_query",
+        "entities": ["九龍塘", "幼稚園", "K1"],
+        "availability_logic": {
+          "step_1": "Resolve location → schools in Kowloon Tong",
+          "step_2": "Filter by level (kindergarten)",
+          "step_3": "Query latest K1 vacancy snapshot",
+          "step_4": "Return schools with vacancy_status = 'Y' or 'L'"
+        },
+        "response_should_contain": [
+          "K1",
+          "幼稚園",
+          "九龍塘",
+          "仲有位"
+        ],
+        "response_should_not_contain": [
+          "學位已滿"
+        ],
+        "sql_validation": {
+          "query": "SELECT m.school_name_en, a.vacancy_status, a.snapshot_date FROM memory.school_availability a JOIN memory.school_entity_master m ON a.school_master_id = m.id WHERE m.district ILIKE '%Kowloon Tong%' AND a.level = 'K1' AND a.vacancy_status IN ('Y', 'L') ORDER BY a.snapshot_date DESC LIMIT 10;",
+          "expect_rows": ">= 0 (depends on data freshness)"
+        }
+      }
+    },
+    {
+      "id": "EVID-002",
+      "name": "School Profile Evidence Chain",
+      "category": "Layer 4 — Profile Evidence",
+      "difficulty": "medium",
+      "input": {
+        "query": "介紹拔萃女書院",
+        "user_id": "test_evid_002",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "school_lookup",
+        "entities": ["拔萃女書院"],
+        "evidence_chain": {
+          "identity_source": "EDB (school_name, address, coordinates, website)",
+          "profile_source": "EDB_SSP (mission, curriculum, language policy)",
+          "academic_source": "CHSC (band proxy, academic signals)"
+        },
+        "response_should_contain": [
+          "拔萃女書院",
+          "女校",
+          "網站"
+        ],
+        "evidence_provenance": {
+          "district": "EDB",
+          "website": "EDB",
+          "school_mission": "EDB_SSP",
+          "academic_signal_stem": "CHSC"
+        },
+        "sql_validation": {
+          "query": "SELECT p.profile_type, p.profile_key, p.source FROM memory.school_profile_evidence p JOIN memory.school_entity_master m ON p.school_master_id = m.id WHERE m.school_name_en ILIKE '%Diocesan Girls%';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "EVID-003",
+      "name": "Cost Intelligence Query",
+      "category": "Layer 6 — Cost Intelligence",
+      "difficulty": "medium",
+      "input": {
+        "query": "聖保羅男女中學全年學費幾多？",
+        "user_id": "test_evid_003",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "cost_query",
+        "entities": ["聖保羅男女中學", "學費"],
+        "cost_logic": {
+          "lookup": "school_cost_profile for tuition type",
+          "latest_year": "most recent year available"
+        },
+        "response_should_contain": [
+          "學費",
+          "聖保羅男女中學"
+        ],
+        "sql_validation": {
+          "query": "SELECT c.cost_type, c.amount, c.year, c.source FROM memory.school_cost_profile c JOIN memory.school_entity_master m ON c.school_master_id = m.id WHERE m.school_name_en ILIKE '%St. Paul%Co-ed%' AND c.cost_type = 'tuition' ORDER BY c.year DESC LIMIT 5;",
+          "expect_rows": ">= 0 (depends on data availability)"
+        }
+      }
+    },
+    {
+      "id": "INTEG-001",
+      "name": "Full Decision Flow — Band 1 Boy in Sha Tin",
+      "category": "Integration — All Layers",
+      "difficulty": "expert",
+      "input": {
+        "query": "我住沙田，仔仔讀緊小學，想搵英文中學，Band 1，有邊啲選擇？",
+        "user_id": "test_integ_001",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "recommendation",
+        "entities": ["沙田", "小學", "英文中學", "Band 1", "男仔"],
+        "integration_flow": {
+          "step_1": "Layer 1: Resolve district → schools in Sha Tin",
+          "step_2": "Layer 2: Identify primary net for Sha Tin address",
+          "step_3": "Layer 4: Filter by academic signal (Band 1)",
+          "step_4": "Layer 4: Filter by language policy (EMI/English)",
+          "step_5": "Layer 4: Filter by gender (boys)",
+          "step_6": "Ranking: Apply constraint 0.5 + academic 0.25 + preference 0.15 + evidence 0.10",
+          "step_7": "Evidence: Generate reasoning with per-field source attribution"
+        },
+        "response_should_contain": [
+          "沙田",
+          "Band 1",
+          "男校",
+          "英文",
+          "推薦"
+        ],
+        "ranking_weights": {
+          "constraint": 0.50,
+          "academic_signal": 0.25,
+          "preference_match": 0.15,
+          "evidence": 0.10
+        },
+        "sql_validation": {
+          "query": "SELECT m.school_name_en, m.district, p.profile_value as language FROM memory.school_entity_master m JOIN memory.school_profile_evidence p ON m.id = p.school_master_id WHERE m.district ILIKE '%Sha Tin%' AND p.profile_key = 'medium_of_instruction' AND p.profile_value ILIKE '%English%';",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "INTEG-002",
+      "name": "KG Vacancy + Location + Profile",
+      "category": "Integration — Layer 5 + Layer 1 + Layer 4",
+      "difficulty": "expert",
+      "input": {
+        "query": "我個女兩歲幾，想係九龍塘搧幼稚園，要有位，最好係活動教學",
+        "user_id": "test_integ_002",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "recommendation",
+        "entities": ["九龍塘", "幼稚園", "K1", "活動教學", "女"],
+        "integration_flow": {
+          "step_1": "Layer 1: Resolve location → schools in Kowloon Tong",
+          "step_2": "Layer 5: Query latest K1 vacancy (must have 'Y' or 'L')",
+          "step_3": "Layer 4: Filter by curriculum (activity-based learning)",
+          "step_4": "Layer 4: Filter by gender (co-ed or girls)",
+          "step_5": "Ranking: Prioritize schools with vacancies + matching pedagogy"
+        },
+        "response_should_contain": [
+          "九龍塘",
+          "幼稚園",
+          "K1",
+          "活動教學"
+        ],
+        "sql_validation": {
+          "query": "SELECT m.school_name_en, a.vacancy_status, p.profile_value as pedagogy FROM memory.school_availability a JOIN memory.school_entity_master m ON a.school_master_id = m.id LEFT JOIN memory.school_profile_evidence p ON m.id = p.school_master_id AND p.profile_key = 'curriculum' WHERE m.district ILIKE '%Kowloon Tong%' AND m.school_level = 'kindergarten' AND a.level = 'K1' AND a.vacancy_status IN ('Y', 'L') ORDER BY a.snapshot_date DESC;",
+          "expect_rows": ">= 0 (depends on data freshness)"
+        }
+      }
+    },
+    {
+      "id": "INTEG-003",
+      "name": "Through-train Advantage Reasoning",
+      "category": "Integration — Layer 3 + Layer 4 + Decision Evidence",
+      "difficulty": "expert",
+      "input": {
+        "query": "讀一條龍小學有咩好處？可唔可以唔使考升中？",
+        "user_id": "test_integ_003",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "school_lookup",
+        "entities": ["一條龍", "小學", "升中"],
+        "integration_flow": {
+          "step_1": "Layer 3: Query through-train relationships",
+          "step_2": "Layer 4: Get profile of linked secondary school",
+          "step_3": "Layer 6: Generate decision evidence (parent case reasoning)",
+          "step_4": "Response: Explain through-train benefit (direct linkage, no central allocation)"
+        },
+        "response_should_contain": [
+          "一條龍",
+          "直升",
+          "中學",
+          "唔需要派位"
+        ],
+        "response_should_not_contain": [
+          "需要參加派位",
+          "統一派位"
+        ],
+        "sql_validation": {
+          "query": "SELECT m1.school_name_en as primary_school, m2.school_name_en as secondary_school, r.group_id FROM memory.school_relationship r JOIN memory.school_entity_master m1 ON r.source_school_id = m1.id JOIN memory.school_entity_master m2 ON r.target_school_id = m2.id WHERE r.relationship_type = 'through_train' LIMIT 5;",
+          "expect_rows": ">= 1"
+        }
+      }
+    },
+    {
+      "id": "AMBIG-001",
+      "name": "Ambiguous Entity Handling — Clarification Required",
+      "category": "Entity Resolution — Ambiguity",
+      "difficulty": "medium",
+      "input": {
+        "query": "聖保羅中學推薦",
+        "user_id": "test_ambig_001",
+        "source": "validation"
+      },
+      "expected": {
+        "intent": "clarification_required",
+        "entities": ["聖保羅"],
+        "ambiguous_entities": [
+          "聖保羅男女中學 (St. Paul's Co-ed College)",
+          "聖保羅書院 (St. Paul's College)",
+          "聖保羅堂幼稚園 (St. Paul's Church Kindergarten)"
+        ],
+        "response_should_contain": [
+          "多間",
+          "邊間",
+          "澄清",
+          "聖保羅"
+        ],
+        "response_should_not_contain": [
+          "推薦聖保羅男女中學",
+          "推薦聖保羅書院"
+        ],
+        "agent_behavior": "MUST NOT auto-recommend. MUST ask clarification.",
+        "clarification_options": [
+          "聖保羅男女中學 (St. Paul's Co-ed College) — 男女校",
+          "聖保羅書院 (St. Paul's College) — 男校",
+          "其他聖保羅學校"
+        ],
+        "sql_validation": {
+          "query": "SELECT school_name_en, school_name_zh, district FROM memory.school_entity_master WHERE school_name_en ILIKE '%St. Paul%' OR school_name_zh LIKE '%聖保羅%';",
+          "expect_rows": ">= 2"
+        }
+      }
+    }
+  ],
+
+  "validation_rules": {
+    "all_cases": [
+      "Response must contain at least one expected entity",
+      "SQL validation query must return expected row count",
+      "Evidence provenance must cite correct source per field",
+      "Ranking weights must remain frozen (constraint 0.5 / academic 0.25 / preference 0.15 / evidence 0.10)"
+    ],
+    "graph_cases": [
+      "Graph traversal must follow correct relationship direction",
+      "Through-train queries must return both primary and secondary schools",
+      "Feeder queries must distinguish feeder vs nominated"
+    ],
+    "admission_cases": [
+      "Net-based logic must be explicit (not distance-based)",
+      "Primary net → Secondary net linkage must be correct",
+      "District → Net mapping must use POA data"
+    ],
+    "evidence_cases": [
+      "KG vacancy must use latest snapshot_date",
+      "Profile evidence must cite EDB_SSP/EDB_PSP/EDB_KGP/CHSC source",
+      "Cost data must cite source (school_website/chsc/parent_report)"
+    ],
+    "ambiguous_cases": [
+      "Agent MUST NOT auto-recommend when entity is ambiguous",
+      "Agent MUST ask clarification with options",
+      "Agent MUST list all matching entities"
+    ]
+  }
+}

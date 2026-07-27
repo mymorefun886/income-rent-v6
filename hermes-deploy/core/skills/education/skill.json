@@ -1,0 +1,19 @@
+{
+  "name": "education",
+  "version": "1.0.0",
+  "description": "Education Engine v1.0 — HK K-12 school decision engine with family profiling, constraint matching, multi-factor ranking, evidence retrieval, and reasoned recommendations",
+  "domains": ["education", "school_analysis"],
+  "intents": [
+    "education",
+    "school",
+    "school_analysis",
+    "school_search",
+    "school_recommendation",
+    "admissions",
+    "school_ranking",
+    "school_advice",
+    "升學",
+    "選校",
+    "學校推薦"
+  ]
+}

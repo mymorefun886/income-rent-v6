@@ -1,0 +1,2150 @@
+[
+  {
+    "chsc_school_id": "SCH-00011",
+    "chsc_name_en": "PLK Laws Foundation College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 991,
+        "edb_school_no": "558044000233",
+        "edb_name_en": "PO LEUNG KUK LAWS FOUNDATION COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u7f85\u6c0f\u57fa\u91d1\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00012",
+    "chsc_name_en": "PLK Mrs. Ma Kam Ming-Cheung Fook Sien College",
+    "chsc_name_zh": null,
+    "chsc_district": "Islands",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 668,
+        "edb_school_no": "522058000133",
+        "edb_name_en": "PO LEUNG KUK MRS MA KAM MING-CHEUNG FOOK SIEN COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u99ac\u9326\u660e\u592b\u4eba\u7ae0\u99a5\u4ed9\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.455
+      }
+    ],
+    "name_similarity": 0.455,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00017",
+    "chsc_name_en": "Po Leung Kuk C. W. Chu College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 455,
+        "edb_school_no": "270083000133",
+        "edb_name_en": "PO LEUNG KUK C.W. CHU COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u6731\u656c\u6587\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.571
+      },
+      {
+        "edb_id": 495,
+        "edb_school_no": "170755000133",
+        "edb_name_en": "PO LEUNG KUK WU CHUNG COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u80e1\u5fe0\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      },
+      {
+        "edb_id": 991,
+        "edb_school_no": "558044000233",
+        "edb_name_en": "PO LEUNG KUK LAWS FOUNDATION COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u7f85\u6c0f\u57fa\u91d1\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      },
+      {
+        "edb_id": 997,
+        "edb_school_no": "552801000233",
+        "edb_name_en": "PO LEUNG KUK NGAN PO LING COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u984f\u5bf6\u9234\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.375
+      },
+      {
+        "edb_id": 436,
+        "edb_school_no": "190586000133",
+        "edb_name_en": "PO LEUNG KUK TANG YUK TIEN COLLEGE",
+        "edb_name_zh": "\u4fdd\u826f\u5c40\u8463\u7389\u5a23\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.571,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00028",
+    "chsc_name_en": "POH 80th Anniversary Tang Ying Hei College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 603,
+        "edb_school_no": "530450000133",
+        "edb_name_en": "POK OI HOSPITAL 80TH ANNIVERSARY TANG YING HEI COLLEGE",
+        "edb_name_zh": "\u535a\u611b\u91ab\u9662\u516b\u5341\u9031\u5e74\u9127\u82f1\u559c\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.556
+      }
+    ],
+    "name_similarity": 0.556,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00029",
+    "chsc_name_en": "POH Chan Kai Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 497,
+        "edb_school_no": "190764000133",
+        "edb_name_en": "POK OI HOSPITAL CHAN KAI MEMORIAL COLLEGE",
+        "edb_name_zh": "\u535a\u611b\u91ab\u9662\u9673\u6977\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00031",
+    "chsc_name_en": "AD&FD POHL Leung Sing Tak College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00050",
+    "chsc_name_en": "Delia Memorial School (Broadway)",
+    "chsc_name_zh": null,
+    "chsc_district": "Sham Shui Po",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00054",
+    "chsc_name_en": "TWGHs Chen Zao Men College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 534,
+        "edb_school_no": "190110000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS CHEN ZAO MEN COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u9673\u5146\u6c11\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00055",
+    "chsc_name_en": "TWGHs Mrs. Fung Wong Fung Ting College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00056",
+    "chsc_name_en": "TWGHs Kwok Yat Wai College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 573,
+        "edb_school_no": "517011000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS KWOK YAT WAI COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u90ed\u4e00\u8466\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00057",
+    "chsc_name_en": "TWGHs Wong Fung Ling College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 434,
+        "edb_school_no": "511307000133",
+        "edb_name_en": "BUDDHIST WONG FUNG LING COLLEGE",
+        "edb_name_zh": "\u4f5b\u6559\u9ec3\u9cf3\u7fce\u4e2d\u5b78",
+        "edb_district": "Eastern",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 620,
+        "edb_school_no": "170780000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS WONG FUNG LING COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u9ec3\u9cf3\u7fce\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.6,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00058",
+    "chsc_name_en": "TWGHs Wong Fut Nam College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 561,
+        "edb_school_no": "170089000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS WONG FUT NAM COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u9ec3\u7b0f\u5357\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00059",
+    "chsc_name_en": "TWGHs Kap Yan Directors' College",
+    "chsc_name_zh": null,
+    "chsc_district": "North",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 533,
+        "edb_school_no": "190373000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS KAP YAN DIRECTORS' COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u7532\u5bc5\u5e74\u7e3d\u7406\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00060",
+    "chsc_name_en": "TWGHs Mr & Mrs Kwong Sik Kwan College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 735,
+        "edb_school_no": "523208000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS MR & MRS KWONG SIK KWAN COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u913a\u932b\u5764\u4f09\u5137\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00061",
+    "chsc_name_en": "TWGHs Li Ka Shing College",
+    "chsc_name_zh": null,
+    "chsc_district": "North",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 610,
+        "edb_school_no": "190403000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS LI KA SHING COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u674e\u5609\u8aa0\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00062",
+    "chsc_name_en": "TWGHs Lee Ching Dea Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Wan Chai",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 750,
+        "edb_school_no": "170283000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS LEE CHING DEA MEMORIAL COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u674e\u6f64\u7530\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "North",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00064",
+    "chsc_name_en": "TWGHs Lui Yun Choy Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 509,
+        "edb_school_no": "516988000233",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS LUI YUN CHOY MEMORIAL COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u5442\u6f64\u8ca1\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00065",
+    "chsc_name_en": "TWGHs C.Y. Ma Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00066",
+    "chsc_name_en": "TWGHs Yow Kam Yuen College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 502,
+        "edb_school_no": "270091000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS YOW KAM YUEN COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u90b1\u91d1\u5143\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00067",
+    "chsc_name_en": "TWGHs Yau Tze Tin Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 640,
+        "edb_school_no": "190381000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS YAU TZE TIN MEMORIAL COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u90b1\u5b50\u7530\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00068",
+    "chsc_name_en": "TWGHs S. C. Gaw Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00070",
+    "chsc_name_en": "TWGHs Sun Hoi Directors' College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 744,
+        "edb_school_no": "190292000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS SUN HOI DIRECTORS' COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u8f9b\u4ea5\u5e74\u7e3d\u7406\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00071",
+    "chsc_name_en": "TWGHs Chang Ming Thien College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sham Shui Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 743,
+        "edb_school_no": "170623000133",
+        "edb_name_en": "TUNG WAH GROUP OF HOSPITALS CHANG MING THIEN COLLEGE",
+        "edb_name_zh": "\u6771\u83ef\u4e09\u9662\u5f35\u660e\u6dfb\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00072",
+    "chsc_name_en": "GCC&ITKD Lau Pak Lok Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00074",
+    "chsc_name_en": "YPI & CA Lee Lim Ming College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00076",
+    "chsc_name_en": "TIACC Woo Hon Fai Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 453,
+        "edb_school_no": "270067000133",
+        "edb_name_en": "TEXTILE INSTITUTE AMERICAN CHAMBER OF COMMERCE WOO HON FAI SECONDARY SCHOOL",
+        "edb_name_zh": "\u7d21\u7e54\u5b78\u6703\u7f8e\u570b\u5546\u6703\u80e1\u6f22\u8f1d\u4e2d\u5b78",
+        "edb_district": "Tsuen Wan",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00081",
+    "chsc_name_en": "Fung Kai No. 1 Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "North",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 457,
+        "edb_school_no": "511854000133",
+        "edb_name_en": "FUNG KAI NO.1 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9cf3\u6eaa\u7b2c\u4e00\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.4,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00098",
+    "chsc_name_en": "HKMLC Queen Maud Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00101",
+    "chsc_name_en": "HK & KLN Chiu Chow Public Assn. Sec. School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yau Tsim Mong",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00102",
+    "chsc_name_en": "HK & KLN Kaifong Women's Association Sun Fong Chung College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tai Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 609,
+        "edb_school_no": "545201000133",
+        "edb_name_en": "HONG KONG AND KOWLOON KAIFONG WOMEN'S ASSOCIATION SUN FONG CHUNG COLLEGE",
+        "edb_name_zh": "\u6e2f\u4e5d\u8857\u574a\u5a66\u5973\u6703\u5b6b\u65b9\u4e2d\u66f8\u9662",
+        "edb_district": "Tai Po",
+        "similarity": 0.545
+      }
+    ],
+    "name_similarity": 0.545,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00128",
+    "chsc_name_en": "The ELCHK Yuen Long Lutheran Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 512,
+        "edb_school_no": "135712000133",
+        "edb_name_en": "ELCHK LUTHERAN SECONDARY SCHOOL",
+        "edb_name_zh": "\u57fa\u7763\u6559\u9999\u6e2f\u4fe1\u7fa9\u6703\u4fe1\u7fa9\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 594,
+        "edb_school_no": "516970000133",
+        "edb_name_en": "YUEN LONG CATHOLIC SECONDARY SCHOOL",
+        "edb_name_zh": "\u5143\u6717\u5929\u4e3b\u6559\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 1006,
+        "edb_school_no": "579530000133",
+        "edb_name_en": "ELCHK LUTHERAN ACADEMY",
+        "edb_name_zh": "\u57fa\u7763\u6559\u9999\u6e2f\u4fe1\u7fa9\u6703\u5b8f\u4fe1\u66f8\u9662",
+        "edb_district": "Yuen Long",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 1095,
+        "edb_school_no": "510483000133",
+        "edb_name_en": "YUEN LONG PUBLIC SECONDARY SCHOOL",
+        "edb_name_zh": "\u5143\u6717\u516c\u7acb\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 714,
+        "edb_school_no": "151335000133",
+        "edb_name_en": "THE EVANGELICAL LUTHERAN CHURCH OF HONG KONG YUEN LONG LUTHERAN SECONDARY SCHOOL",
+        "edb_name_zh": "\u57fa\u7763\u6559\u9999\u6e2f\u4fe1\u7fa9\u6703\u5143\u6717\u4fe1\u7fa9\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00130",
+    "chsc_name_en": "ECF Saint Too Canaan College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1001,
+        "edb_school_no": "552836000133",
+        "edb_name_en": "EVANGELIZE CHINA FELLOWSHIP SAINT TOO CANAAN COLLEGE",
+        "edb_name_zh": "\u57fa\u7763\u6559\u4e2d\u570b\u4f48\u9053\u6703\u8056\u9053\u8fe6\u5357\u66f8\u9662",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.429
+      },
+      {
+        "edb_id": 3450,
+        "edb_school_no": "623067000133",
+        "edb_name_en": "SAINT TOO BLOOM ACADEMY",
+        "edb_name_zh": "\u8056\u9053\u767e\u5349\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00145",
+    "chsc_name_en": "Tseung Kwan O Government Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1104,
+        "edb_school_no": "510700000133",
+        "edb_name_en": "TSEUNG KWAN O GOVERNMENT SEC SCHOOL",
+        "edb_name_zh": "\u5c07\u8ecd\u6fb3\u5b98\u7acb\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.8
+      }
+    ],
+    "name_similarity": 0.8,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00158",
+    "chsc_name_en": "Salvation Army William Booth Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 661,
+        "edb_school_no": "170585000133",
+        "edb_name_en": "THE SALVATION ARMY WILLIAM BOOTH SECONDARY SCHOOL",
+        "edb_name_zh": "\u6551\u4e16\u8ecd\u535c\u7dad\u5ec9\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 1.0
+      }
+    ],
+    "name_similarity": 1.0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00160",
+    "chsc_name_en": "Ho Fung College (Sponsored by Sik Sik Yuen)",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 586,
+        "edb_school_no": "190098000133",
+        "edb_name_en": "HO FUNG COLLEGE (SPONSORED BY THE SIK SIK YUEN)",
+        "edb_name_zh": "\u53ef\u98a8\u4e2d\u5b78(\u55c7\u8272\u5712\u4e3b\u8fa6)",
+        "edb_district": "",
+        "similarity": 1.0
+      },
+      {
+        "edb_id": 525,
+        "edb_school_no": "270105000133",
+        "edb_name_en": "HO NGAI COLLEGE (SPONSORED BY SIK SIK YUEN)",
+        "edb_name_zh": "\u55c7\u8272\u5712\u4e3b\u8fa6\u53ef\u85dd\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.714
+      },
+      {
+        "edb_id": 693,
+        "edb_school_no": "190799000133",
+        "edb_name_en": "HO DAO COLLEGE (SPONSORED BY SIK SIK YUEN)",
+        "edb_name_zh": "\u53ef\u9053\u4e2d\u5b78(\u55c7\u8272\u5712\u4e3b\u8fa6)",
+        "edb_district": "Yuen Long",
+        "similarity": 0.714
+      },
+      {
+        "edb_id": 554,
+        "edb_school_no": "170364000133",
+        "edb_name_en": "HO LAP COLLEGE (SPONSORED BY THE SIK SIK YUEN)",
+        "edb_name_zh": "\u53ef\u7acb\u4e2d\u5b78(\u55c7\u8272\u5712\u4e3b\u8fa6)",
+        "edb_district": "",
+        "similarity": 0.714
+      },
+      {
+        "edb_id": 669,
+        "edb_school_no": "522074000233",
+        "edb_name_en": "HO YU COLLEGE AND PRIMARY SCHOOL (SPONSORED BY SIK SIK YUEN)",
+        "edb_name_zh": "\u55c7\u8272\u5712\u4e3b\u8fa6\u53ef\u8b7d\u4e2d\u5b78\u66a8\u53ef\u8b7d\u5c0f\u5b78",
+        "edb_district": "",
+        "similarity": 0.625
+      }
+    ],
+    "name_similarity": 1.0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00164",
+    "chsc_name_en": "Kiangsu - Chekiang College (Kwai Chung)",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 646,
+        "edb_school_no": "230430000133",
+        "edb_name_en": "KIANGSU-CHEKIANG COLLEGE (KWAI CHUNG)",
+        "edb_name_zh": "\u8475\u6d8c\u8607\u6d59\u516c\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00177",
+    "chsc_name_en": "Rhenish Church Pang Hok Ko Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 777,
+        "edb_school_no": "170208000133",
+        "edb_name_en": "RHENISH CHURCH PANG HOK-KO MEMORIAL COLLEGE",
+        "edb_name_zh": "\u79ae\u8ce2\u6703\u5f6d\u5b78\u9ad8\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 728,
+        "edb_school_no": "530034000133",
+        "edb_name_en": "FANLING RHENISH CHURCH SECONDARY SCHOOL",
+        "edb_name_zh": "\u7c89\u5dba\u79ae\u8ce2\u6703\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00197",
+    "chsc_name_en": "MKMCF Ma Chan Duen Hey Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 474,
+        "edb_school_no": "524816000133",
+        "edb_name_en": "MA KAM MING CHARITABLE FOUNDATION MA CHAN DUEN HEY MEMORIAL COLLEGE",
+        "edb_name_zh": "\u99ac\u9326\u660e\u6148\u5584\u57fa\u91d1\u99ac\u9673\u7aef\u559c\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.444
+      },
+      {
+        "edb_id": 3441,
+        "edb_school_no": "531880000134",
+        "edb_name_en": "MA KAM MING CHARITABLE FOUNDATION MA CHAN DUEN HEY MEMORIAL EVENING COLLEGE",
+        "edb_name_zh": "\u99ac\u9326\u660e\u6148\u5584\u57fa\u91d1\u99ac\u9673\u7aef\u559c\u7d00\u5ff5\u591c\u6821",
+        "edb_district": "",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.444,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00198",
+    "chsc_name_en": "Stewards MKMCF Ma Ko Pan Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 718,
+        "edb_school_no": "521981000133",
+        "edb_name_en": "STEWARDS MA KAM MING CHARITABLE FOUNDATION MA KO PAN MEMORIAL COLLEGE",
+        "edb_name_zh": "\u99ac\u9326\u660e\u6148\u5584\u57fa\u91d1\u99ac\u53ef\u8cd3\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.444
+      }
+    ],
+    "name_similarity": 0.444,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00204",
+    "chsc_name_en": "The Yuen Yuen Institute MFBM Nei Ming Chan Lui Chung Tak Mem. College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 753,
+        "edb_school_no": "152196000133",
+        "edb_name_en": "THE YUEN YUEN INSTITUTE MFBM NEI MING CHAN LUI CHUNG TAK MEMORIAL COLLEGE",
+        "edb_name_zh": "\u5713\u7384\u5b78\u9662\u5999\u6cd5\u5bfa\u5167\u660e\u9673\u5442\u91cd\u5fb7\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.9
+      }
+    ],
+    "name_similarity": 0.9,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00217",
+    "chsc_name_en": "South Tuen Mun Government Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1105,
+        "edb_school_no": "510297000133",
+        "edb_name_en": "TUEN MUN GOVERNMENT SECONDARY SCHOOL",
+        "edb_name_zh": "\u5c6f\u9580\u5b98\u7acb\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.75
+      },
+      {
+        "edb_id": 1094,
+        "edb_school_no": "510661000133",
+        "edb_name_en": "SOUTH TUEN MUN GOVERNMENT SEC SCH",
+        "edb_name_zh": "\u5357\u5c6f\u9580\u5b98\u7acb\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.667
+      },
+      {
+        "edb_id": 787,
+        "edb_school_no": "190624000133",
+        "edb_name_en": "TUEN MUN CATHOLIC SECONDARY SCHOOL",
+        "edb_name_zh": "\u5c6f\u9580\u5929\u4e3b\u6559\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.75,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00219",
+    "chsc_name_en": "Ning Po No. 2 College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 769,
+        "edb_school_no": "214477000133",
+        "edb_name_en": "NING PO COLLEGE",
+        "edb_name_zh": "\u5be7\u6ce2\u516c\u5b78",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 623,
+        "edb_school_no": "170984000133",
+        "edb_name_en": "NING PO NO.2 COLLEGE",
+        "edb_name_zh": "\u5be7\u6ce2\u7b2c\u4e8c\u4e2d\u5b78",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00233",
+    "chsc_name_en": "St. Francis Xavier's School Tsuen Wan",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 748,
+        "edb_school_no": "190012000133",
+        "edb_name_en": "ST. FRANCIS XAVIER'S SCHOOL, TSUEN WAN",
+        "edb_name_zh": "\u8343\u7063\u8056\u82b3\u6fdf\u4e2d\u5b78",
+        "edb_district": "Tsuen Wan",
+        "similarity": 0.833
+      },
+      {
+        "edb_id": 511,
+        "edb_school_no": "210277000133",
+        "edb_name_en": "ST. FRANCIS XAVIER'S COLLEGE",
+        "edb_name_zh": "\u8056\u82b3\u6fdf\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 711,
+        "edb_school_no": "170771000233",
+        "edb_name_en": "ST. FRANCIS OF ASSISI'S COLLEGE",
+        "edb_name_zh": "\u8056\u82b3\u6fdf\u5404\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.333
+      },
+      {
+        "edb_id": 1097,
+        "edb_school_no": "510467000133",
+        "edb_name_en": "TSUEN WAN GOVERNMENT SECONDARY SCHOOL",
+        "edb_name_zh": "\u8343\u7063\u5b98\u7acb\u4e2d\u5b78",
+        "edb_district": "Tsuen Wan",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.833,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00239",
+    "chsc_name_en": "YCH Lim Por Yen Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 670,
+        "edb_school_no": "190306000133",
+        "edb_name_en": "YAN CHAI HOSPITAL LIM POR YEN SECONDARY SCHOOL",
+        "edb_name_zh": "\u4ec1\u6fdf\u91ab\u9662\u6797\u767e\u6b23\u4e2d\u5b78",
+        "edb_district": "Tsuen Wan",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00265",
+    "chsc_name_en": "S.K.H. Bishop Baker Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 473,
+        "edb_school_no": "190470000133",
+        "edb_name_en": "SHENG KUNG HUI BISHOP BAKER SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u767d\u7d04\u7ff0\u6703\u7763\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00266",
+    "chsc_name_en": "SKH Tsoi Kung Po Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 558,
+        "edb_school_no": "170658000133",
+        "edb_name_en": "SHENG KUNG HUI TSOI KUNG PO SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u8521\u529f\u8b5c\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00268",
+    "chsc_name_en": "S.K.H. Tang Shiu Kin Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wan Chai",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1107,
+        "edb_school_no": "510262000133",
+        "edb_name_en": "TANG SHIU KIN VICTORIA GOVERNMENT SECONDARY SCHOOL",
+        "edb_name_zh": "\u9127\u8087\u5805\u7dad\u591a\u5229\u4e9e\u5b98\u7acb\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 704,
+        "edb_school_no": "212725000133",
+        "edb_name_en": "SHENG KUNG HUI TANG SHIU KIN SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u9127\u8087\u5805\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00269",
+    "chsc_name_en": "S.K.H. Kei Hau Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 439,
+        "edb_school_no": "170720000133",
+        "edb_name_en": "SHENG KUNG HUI KEI HAU SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u57fa\u5b5d\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00270",
+    "chsc_name_en": "S.K.H. Li Ping Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tsuen Wan",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 685,
+        "edb_school_no": "230871000133",
+        "edb_name_en": "SHENG KUNG HUI LI PING SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u674e\u70b3\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00274",
+    "chsc_name_en": "S.K.H. Lam Kau Mow Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 492,
+        "edb_school_no": "190209000133",
+        "edb_name_en": "SHENG KUNG HUI LAM KAU MOW SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u6797\u88d8\u8b00\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      },
+      {
+        "edb_id": 588,
+        "edb_school_no": "170542000133",
+        "edb_name_en": "S.K.H. LAM WOO MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u6797\u8b77\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00275",
+    "chsc_name_en": "S.K.H. Lui Ming Choi Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Southern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 627,
+        "edb_school_no": "190071000133",
+        "edb_name_en": "S.K.H. ST. SIMON'S LUI MING CHOI SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u8056\u897f\u9580\u5442\u660e\u624d\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.667
+      },
+      {
+        "edb_id": 448,
+        "edb_school_no": "230820000133",
+        "edb_name_en": "BAPTIST LUI MING CHOI SECONDARY SCHOOL",
+        "edb_name_zh": "\u6d78\u4fe1\u6703\u5442\u660e\u624d\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 578,
+        "edb_school_no": "230847000133",
+        "edb_name_en": "LUI MING CHOI LUTHERAN COLLEGE",
+        "edb_name_zh": "\u8def\u5fb7\u6703\u5442\u660e\u624d\u4e2d\u5b78",
+        "edb_district": "Tsuen Wan",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 694,
+        "edb_school_no": "214485000233",
+        "edb_name_en": "ABERDEEN BAPTIST LUI MING CHOI COLLEGE",
+        "edb_name_zh": "\u9999\u6e2f\u4ed4\u6d78\u4fe1\u6703\u5442\u660e\u624d\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 619,
+        "edb_school_no": "170690000133",
+        "edb_name_en": "SHENG KUNG HUI LUI MING CHOI SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u5442\u660e\u624d\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.667,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00276",
+    "chsc_name_en": "SKH Bishop Mok Sau Tseng Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tai Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 530,
+        "edb_school_no": "190080000133",
+        "edb_name_en": "SHENG KUNG HUI BISHOP MOK SAU TSENG SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u83ab\u58fd\u589e\u6703\u7763\u4e2d\u5b78",
+        "edb_district": "Tai Po",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00277",
+    "chsc_name_en": "S.K.H. St. Benedict's School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 543,
+        "edb_school_no": "513997000133",
+        "edb_name_en": "SHENG KUNG HUI ST. BENEDICT'S SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u8056\u672c\u5fb7\u4e2d\u5b78",
+        "edb_district": "Wong Tai Sin",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00279",
+    "chsc_name_en": "S.K.H. Holy Trinity Church Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 503,
+        "edb_school_no": "213845000133",
+        "edb_name_en": "HOLY TRINITY COLLEGE",
+        "edb_name_zh": "\u5bf6\u8840\u6703\u4e0a\u667a\u82f1\u6587\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 552,
+        "edb_school_no": "170666000133",
+        "edb_name_en": "SHENG KUNG HUI HOLY TRINITY CHURCH SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u8056\u4e09\u4e00\u5802\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00281",
+    "chsc_name_en": "S.K.H. Tsang Shiu Tim Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 482,
+        "edb_school_no": "230790000133",
+        "edb_name_en": "SHENG KUNG HUI TSANG SHIU TIM SECONDARY SCHOOL",
+        "edb_name_zh": "\u8056\u516c\u6703\u66fe\u8087\u6dfb\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00296",
+    "chsc_name_en": "St. Stephen's Girls' College",
+    "chsc_name_zh": null,
+    "chsc_district": "Central & Western",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1032,
+        "edb_school_no": "170712000133",
+        "edb_name_en": "ST. STEPHEN'S COLLEGE",
+        "edb_name_zh": "\u8056\u58eb\u63d0\u53cd\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.667
+      },
+      {
+        "edb_id": 464,
+        "edb_school_no": "213195000133",
+        "edb_name_en": "ST. STEPHEN'S CHURCH COLLEGE",
+        "edb_name_zh": "\u8056\u58eb\u63d0\u53cd\u5802\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 555,
+        "edb_school_no": "170410000133",
+        "edb_name_en": "ST. ANTONIUS GIRLS' COLLEGE",
+        "edb_name_zh": "\u8056\u5b89\u7576\u5973\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 650,
+        "edb_school_no": "514268000133",
+        "edb_name_en": "ST STEPHEN'S GIRLS' COLLEGE",
+        "edb_name_zh": "\u8056\u58eb\u63d0\u53cd\u5973\u5b50\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 700,
+        "edb_school_no": "213195000233",
+        "edb_name_en": "ST. STEPHEN'S CHURCH COLLEGE",
+        "edb_name_zh": "\u8056\u58eb\u63d0\u53cd\u5802\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.667,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00299",
+    "chsc_name_en": "St. Bonaventure College & High School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 677,
+        "edb_school_no": "170402000133",
+        "edb_name_en": "ST. BONAVENTURE COLLEGE AND HIGH SCHOOL",
+        "edb_name_zh": "\u8056\u6587\u5fb7\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 1.0
+      }
+    ],
+    "name_similarity": 1.0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00303",
+    "chsc_name_en": "SPHRC Kung Yik She Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 672,
+        "edb_school_no": "518417000133",
+        "edb_name_en": "SHAP PAT HEUNG RURAL COMMITTEE KUNG YIK SHE SECONDARY SCHOOL",
+        "edb_name_zh": "\u5341\u516b\u9109\u9109\u4e8b\u59d4\u54e1\u6703\u516c\u76ca\u793e\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00305",
+    "chsc_name_en": "Lung Kong WFSL Lau Wong Fat Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yau Tsim Mong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 508,
+        "edb_school_no": "170437000133",
+        "edb_name_en": "LUNG KONG WORLD FEDERATION SCHOOL LIMITED LAU WONG FAT SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e16\u754c\u9f8d\u5ca1\u5b78\u6821\u5289\u7687\u767c\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.556
+      }
+    ],
+    "name_similarity": 0.556,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00306",
+    "chsc_name_en": "STFA Seaward Woo College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00332",
+    "chsc_name_en": "WEO Chang Pui Chung Memorial School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 516,
+        "edb_school_no": "522155000133",
+        "edb_name_en": "WELLINGTON EDUCATION ORGANIZATION CHANG PUI CHUNG MEMORIAL SCHOOL",
+        "edb_name_zh": "\u5a01\u9748\u9813\u6559\u80b2\u6a5f\u69cb\u5f35\u6c9b\u677e\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00333",
+    "chsc_name_en": "The Methodist Church HK Wesley College",
+    "chsc_name_zh": null,
+    "chsc_district": "Eastern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 430,
+        "edb_school_no": "170810000233",
+        "edb_name_en": "THE METHODIST CHURCH HONG KONG WESLEY COLLEGE",
+        "edb_name_zh": "\u885e\u7406\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00335",
+    "chsc_name_en": "Cognitio College (HK)",
+    "chsc_name_zh": null,
+    "chsc_district": "Eastern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 781,
+        "edb_school_no": "214752000233",
+        "edb_name_en": "COGNITIO COLLEGE (KOWLOON)",
+        "edb_name_zh": "\u6587\u7406\u66f8\u9662(\u4e5d\u9f8d)",
+        "edb_district": "Kowloon City",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00337",
+    "chsc_name_en": "PHC Wing Kwong College",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 470,
+        "edb_school_no": "230758000133",
+        "edb_name_en": "LINGNAN DR. CHUNG WING KWONG MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u5dba\u5357\u937e\u69ae\u5149\u535a\u58eb\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      },
+      {
+        "edb_id": 705,
+        "edb_school_no": "213292000133",
+        "edb_name_en": "THE PENTECOSTAL HOLINESS CHURCH WING KWONG COLLEGE",
+        "edb_name_zh": "\u4e94\u65ec\u7bc0\u8056\u6f54\u6703\u6c38\u5149\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00339",
+    "chsc_name_en": "FDBWA Szeto Ho Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 782,
+        "edb_school_no": "215040000133",
+        "edb_name_en": "F.D.B.W.A. SZETO HO SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e94\u9091\u53f8\u5f92\u6d69\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00344",
+    "chsc_name_en": "HKWMA Chu Shek Lun Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 654,
+        "edb_school_no": "270121000133",
+        "edb_name_en": "HONG KONG WEAVING MILLS ASSOCIATION CHU SHEK LUN SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u5e03\u5ee0\u5546\u6703\u6731\u77f3\u9e9f\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00347",
+    "chsc_name_en": "Hong Kong Taoist Association The Yuen Yuen Institute No. 2 Secondary Sch",
+    "chsc_name_zh": null,
+    "chsc_district": "Tai Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 593,
+        "edb_school_no": "524808000133",
+        "edb_name_en": "THE HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO. 3 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e09\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.7
+      },
+      {
+        "edb_id": 491,
+        "edb_school_no": "190683000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO.2 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e8c\u4e2d\u5b78",
+        "edb_district": "Tai Po",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 645,
+        "edb_school_no": "230421000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO.1 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e00\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 500,
+        "edb_school_no": "190420000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION TANG HIN MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u9127\u986f\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.364
+      },
+      {
+        "edb_id": 715,
+        "edb_school_no": "170933000133",
+        "edb_name_en": "THE HONG KONG TAOIST ASSOCIATION CHING CHUNG SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u9752\u677e\u4e2d\u5b78",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.364
+      }
+    ],
+    "name_similarity": 0.7,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00348",
+    "chsc_name_en": "Hong Kong Taoist Association The Yuen Yuen Institute No. 3 Secondary Sch",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 593,
+        "edb_school_no": "524808000133",
+        "edb_name_en": "THE HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO. 3 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e09\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.889
+      },
+      {
+        "edb_id": 491,
+        "edb_school_no": "190683000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO.2 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e8c\u4e2d\u5b78",
+        "edb_district": "Tai Po",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 645,
+        "edb_school_no": "230421000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION THE YUEN YUEN INSTITUTE NO.1 SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u5713\u7384\u5b78\u9662\u7b2c\u4e00\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.6
+      },
+      {
+        "edb_id": 500,
+        "edb_school_no": "190420000133",
+        "edb_name_en": "HONG KONG TAOIST ASSOCIATION TANG HIN MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u9127\u986f\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.364
+      },
+      {
+        "edb_id": 715,
+        "edb_school_no": "170933000133",
+        "edb_name_en": "THE HONG KONG TAOIST ASSOCIATION CHING CHUNG SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u9053\u6559\u806f\u5408\u6703\u9752\u677e\u4e2d\u5b78",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.364
+      }
+    ],
+    "name_similarity": 0.889,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00349",
+    "chsc_name_en": "HKTA The Yuen Yuen Institute No. 1 Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00355",
+    "chsc_name_en": "HKCCCU Logos Academy",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00356",
+    "chsc_name_en": "Wah Yan College Hong Kong",
+    "chsc_name_zh": null,
+    "chsc_district": "Wan Chai",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 435,
+        "edb_school_no": "514802000133",
+        "edb_name_en": "WAH YAN COLLEGE, HONG KONG",
+        "edb_name_zh": "\u9999\u6e2f\u83ef\u4ec1\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.8
+      },
+      {
+        "edb_id": 589,
+        "edb_school_no": "260312000133",
+        "edb_name_en": "HONG KONG SEA SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u822a\u6d77\u5b78\u6821",
+        "edb_district": "",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 1179,
+        "edb_school_no": "539155000333",
+        "edb_name_en": "HONG KONG ACADEMY",
+        "edb_name_zh": "\u9999\u6e2f\u5b78\u5802\u570b\u969b\u5b78\u6821",
+        "edb_district": "Sai Kung",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 1189,
+        "edb_school_no": "606766000133",
+        "edb_name_en": "MALVERN COLLEGE HONG KONG",
+        "edb_name_zh": "\u9999\u6e2f\u58a8\u723e\u6587\u570b\u969b\u5b78\u6821",
+        "edb_district": "Tai Po",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 1190,
+        "edb_school_no": "603902000133",
+        "edb_name_en": "AMERICAN SCHOOL HONG KONG",
+        "edb_name_zh": "AMERICAN SCHOOL HONG KONG",
+        "edb_district": "Tai Po",
+        "similarity": 0.4
+      }
+    ],
+    "name_similarity": 0.8,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00359",
+    "chsc_name_en": "HKBU Affiliated School Wong Kam Fai Secondary & Primary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1028,
+        "edb_school_no": "567353000133",
+        "edb_name_en": "HONG KONG BAPTIST UNIVERSITY AFFILIATED SCHOOL WONG KAM FAI SECONDARY AND PRIMARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u6d78\u6703\u5927\u5b78\u9644\u5c6c\u5b78\u6821\u738b\u9326\u8f1d\u4e2d\u5c0f\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00361",
+    "chsc_name_en": "Christian Alliance Cheng Wing Gee College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 786,
+        "edb_school_no": "311103000233",
+        "edb_name_en": "CHRISTIAN ALLIANCE COLLEGE",
+        "edb_name_zh": "\u5ba3\u9053\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 501,
+        "edb_school_no": "190497000133",
+        "edb_name_en": "CHRISTIAN ALLIANCE CHENG WING GEE COLLEGE OF THE KOWLOON TONG CHURCH OF THE CHINESE CHRISTIAN AND MISSIONARY ALLIANCE, HONG KONG",
+        "edb_name_zh": "\u9999\u6e2f\u4e5d\u9f8d\u5858\u57fa\u7763\u6559\u4e2d\u83ef\u5ba3\u9053\u6703\u912d\u69ae\u4e4b\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.385
+      },
+      {
+        "edb_id": 1173,
+        "edb_school_no": "605557000133",
+        "edb_name_en": "CHRISTIAN ALLIANCE INTERNATIONAL SCHOOL",
+        "edb_name_zh": "\u5ba3\u9053\u570b\u969b\u5b78\u6821",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.4,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00367",
+    "chsc_name_en": "HKSKH Bishop Hall Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 569,
+        "edb_school_no": "170100000133",
+        "edb_name_en": "BISHOP HALL JUBILEE SCHOOL",
+        "edb_name_zh": "\u4f55\u660e\u83ef\u6703\u7763\u9280\u79a7\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00368",
+    "chsc_name_en": "HKSYC & IA Chan Nam Chong Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 614,
+        "edb_school_no": "230901000133",
+        "edb_name_en": "THE HONG KONG S.Y.C. & I.A. CHAN NAM CHONG MEMORIAL COLLEGE",
+        "edb_name_zh": "\u9999\u6e2f\u56db\u9091\u5546\u5de5\u7e3d\u6703\u9673\u5357\u660c\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00369",
+    "chsc_name_en": "HKSYC & IA Wong Tai Shan Memorial College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sham Shui Po",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00370",
+    "chsc_name_en": "HKICC Lee Shau Kee School of Creativity",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 990,
+        "edb_school_no": "568287000133",
+        "edb_name_en": "HKFYG LEE SHAU KEE COLLEGE",
+        "edb_name_zh": "\u9999\u6e2f\u9752\u5e74\u5354\u6703\u674e\u5146\u57fa\u66f8\u9662",
+        "edb_district": "Yuen Long",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 1018,
+        "edb_school_no": "558095000233",
+        "edb_name_en": "HONG KONG INSTITUTE OF CONTEMPORARY CULTURE LEE SHAU KEE SCHOOL OF CREATIVITY",
+        "edb_name_zh": "\u9999\u6e2f\u5146\u57fa\u5275\u610f\u66f8\u9662(\u674e\u5146\u57fa\u57fa\u91d1\u6703\u8d0a\u52a9\u3001\u9999\u6e2f\u7576\u4ee3\u6587\u5316\u4e2d\u5fc3\u4e3b\u8fa6)",
+        "edb_district": "",
+        "similarity": 0.4
+      },
+      {
+        "edb_id": 674,
+        "edb_school_no": "230740000133",
+        "edb_name_en": "SHUN TAK FRATERNAL ASSOCIATION LEE SHAU KEE COLLEGE",
+        "edb_name_zh": "\u9806\u5fb7\u806f\u8abc\u7e3d\u6703\u674e\u5146\u57fa\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00373",
+    "chsc_name_en": "HKCWC Fung Yiu King Memorial Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 584,
+        "edb_school_no": "190802000133",
+        "edb_name_en": "THE HONG KONG CHINESE WOMEN'S CLUB FUNG YIU KING MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u4e2d\u570b\u5a66\u5973\u6703\u99ae\u582f\u656c\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00375",
+    "chsc_name_en": "CUHKFAA Chan Chun Ha Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Sha Tin",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 447,
+        "edb_school_no": "270148000133",
+        "edb_name_en": "CARITAS FANLING CHAN CHUN HA SECONDARY SCHOOL",
+        "edb_name_zh": "\u660e\u611b\u7c89\u5dba\u9673\u9707\u590f\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 626,
+        "edb_school_no": "535761000133",
+        "edb_name_en": "CUHK FAA CHAN CHUN HA SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u4e2d\u6587\u5927\u5b78\u6821\u53cb\u6703\u806f\u6703\u9673\u9707\u590f\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 649,
+        "edb_school_no": "270156000133",
+        "edb_name_en": "CARITAS YUEN LONG CHAN CHUN HA SECONDARY SCHOOL",
+        "edb_name_zh": "\u660e\u611b\u5143\u6717\u9673\u9707\u590f\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.429
+      },
+      {
+        "edb_id": 587,
+        "edb_school_no": "519162000233",
+        "edb_name_en": "CARITAS CHAN CHUN HA FIELD STUDIES CENTRE",
+        "edb_name_zh": "\u660e\u611b\u9673\u9707\u590f\u90ca\u91ce\u5b78\u5712",
+        "edb_district": "",
+        "similarity": 0.375
+      },
+      {
+        "edb_id": 692,
+        "edb_school_no": "519162000133",
+        "edb_name_en": "CARITAS CHAN CHUN HA FIELD STUDIES CENTRE",
+        "edb_name_zh": "\u660e\u611b\u9673\u9707\u590f\u90ca\u91ce\u5b78\u5712",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00376",
+    "chsc_name_en": "CUHK FAA Thomas Cheung Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 663,
+        "edb_school_no": "190837000133",
+        "edb_name_en": "CUHK FEDERATION OF ALUMNI ASSOCIATIONS THOMAS CHEUNG SECONDARY SCHOOL",
+        "edb_name_zh": "\u9999\u6e2f\u4e2d\u6587\u5927\u5b78\u6821\u53cb\u6703\u806f\u6703\u5f35\u714a\u660c\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.429
+      }
+    ],
+    "name_similarity": 0.429,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00383",
+    "chsc_name_en": "San Wui Commercial Soc. Chan Pak Sha School",
+    "chsc_name_zh": null,
+    "chsc_district": "Southern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 684,
+        "edb_school_no": "170615000133",
+        "edb_name_en": "SAN WUI COMMERCIAL SOCIETY CHAN PAK SHA SCHOOL",
+        "edb_name_zh": "\u65b0\u6703\u5546\u6703\u9673\u767d\u6c99\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.75
+      },
+      {
+        "edb_id": 527,
+        "edb_school_no": "190691000133",
+        "edb_name_en": "SAN WUI COMMERCIAL SOCIETY SECONDARY SCHOOL",
+        "edb_name_zh": "\u65b0\u6703\u5546\u6703\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.75,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00385",
+    "chsc_name_en": "De La Salle Secondary School NT",
+    "chsc_name_zh": null,
+    "chsc_district": "North",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 521,
+        "edb_school_no": "512583000133",
+        "edb_name_en": "LA SALLE COLLEGE",
+        "edb_name_zh": "\u5587\u6c99\u66f8\u9662",
+        "edb_district": "",
+        "similarity": 0.5
+      },
+      {
+        "edb_id": 630,
+        "edb_school_no": "190020000133",
+        "edb_name_en": "DE LA SALLE SECONDARY SCHOOL N T",
+        "edb_name_zh": "\u65b0\u754c\u5587\u6c99\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.5,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00386",
+    "chsc_name_en": "Cheng Chek Chee Secondary School of SK & HH District N.T",
+    "chsc_name_zh": null,
+    "chsc_district": "Sai Kung",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00387",
+    "chsc_name_en": "N.T. Heung Yee Kuk Tai Po District Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tai Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1092,
+        "edb_school_no": "510556000133",
+        "edb_name_en": "NTHYK TAI PO DISTRICT SECONDARY SCHOOL",
+        "edb_name_zh": "\u65b0\u754c\u9109\u8b70\u5c40\u5927\u57d4\u5340\u4e2d\u5b78",
+        "edb_district": "Tai Po",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00388",
+    "chsc_name_en": "N.T. Heung Yee Kuk Yuen Long District Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 1103,
+        "edb_school_no": "510165000133",
+        "edb_name_en": "NTHYK YUEN LONG DISTRICT SECONDARY SCH",
+        "edb_name_zh": "\u65b0\u754c\u9109\u8b70\u5c40\u5143\u6717\u5340\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.333
+      }
+    ],
+    "name_similarity": 0.333,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00389",
+    "chsc_name_en": "NLSI Lui Kwok Pat Fong College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 633,
+        "edb_school_no": "170925000133",
+        "edb_name_en": "NEW LIFE SCHOOLS INCORPORATION LUI KWOK PAT FONG COLLEGE",
+        "edb_name_zh": "\u65b0\u751f\u547d\u6559\u80b2\u5354\u6703\u5442\u90ed\u78a7\u9cf3\u4e2d\u5b78",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.444
+      }
+    ],
+    "name_similarity": 0.444,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00397",
+    "chsc_name_en": "Queen Elizabeth School Old Students' Association Tong Kwok Wah Sec. Sch",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 780,
+        "edb_school_no": "560480000133",
+        "edb_name_en": "QUEEN ELIZABETH SCHOOL OLD STUDENTS' ASSOCIATION TONG KWOK WAH SECONDARY SCHOOL",
+        "edb_name_zh": "\u4f0a\u5229\u6c99\u4f2f\u4e2d\u5b78\u820a\u751f\u6703\u6e6f\u570b\u83ef\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.8
+      },
+      {
+        "edb_id": 783,
+        "edb_school_no": "518387000133",
+        "edb_name_en": "QUEEN ELIZABETH SCHOOL OLD STUDENTS' ASSOCIATION SECONDARY SCHOOL",
+        "edb_name_zh": "\u4f0a\u5229\u6c99\u4f2f\u4e2d\u5b78\u820a\u751f\u6703\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.5
+      }
+    ],
+    "name_similarity": 0.8,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00407",
+    "chsc_name_en": "YLPMSAA Tang Siu Tong Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00417",
+    "chsc_name_en": "CNEC Lau Wing Sang Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Eastern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 486,
+        "edb_school_no": "529990000233",
+        "edb_name_en": "CHRISTIAN NATIONALS' EVANGELISM COMMISSION LAU WING SANG SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e2d\u83ef\u50b3\u9053\u6703\u5289\u6c38\u751f\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00418",
+    "chsc_name_en": "CCC Fong Yun Wah Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 477,
+        "edb_school_no": "545228000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA FONG YUN WAH SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u65b9\u6f64\u83ef\u4e2d\u5b78",
+        "edb_district": "Yuen Long",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00419",
+    "chsc_name_en": "CCC Fung Leung Kit Memorial Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tai Po",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 717,
+        "edb_school_no": "270130000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA FUNG LEUNG KIT MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u99ae\u6881\u7d50\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "Tai Po",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00420",
+    "chsc_name_en": "CCC Rotary Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00421",
+    "chsc_name_en": "CCC Kung Lee College",
+    "chsc_name_zh": null,
+    "chsc_district": "Wan Chai",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00422",
+    "chsc_name_en": "CCC Kwei Wah Shan College",
+    "chsc_name_zh": null,
+    "chsc_district": "Eastern",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 689,
+        "edb_school_no": "170216000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA KWEI WAH SHAN COLLEGE",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u6842\u83ef\u5c71\u4e2d\u5b78",
+        "edb_district": "",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00423",
+    "chsc_name_en": "CCC Hoh Fuk Tong College",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 642,
+        "edb_school_no": "230120000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA HOH FUK TONG COLLEGE",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u4f55\u798f\u5802\u66f8\u9662",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00424",
+    "chsc_name_en": "CCC Kei To Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kowloon City",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00425",
+    "chsc_name_en": "CCC Kei Long College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00426",
+    "chsc_name_en": "CCC Kei Heep Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00427",
+    "chsc_name_en": "CCC Kei San Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "North",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00428",
+    "chsc_name_en": "CCC Kei Yuen College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yuen Long",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00429",
+    "chsc_name_en": "CCC Kei Chi Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00430",
+    "chsc_name_en": "CCC Mong Man Wai College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwun Tong",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 667,
+        "edb_school_no": "170704000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA MONG MAN WAI COLLEGE",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u8499\u6c11\u5049\u66f8\u9662",
+        "edb_district": "Kwun Tong",
+        "similarity": 0.375
+      }
+    ],
+    "name_similarity": 0.375,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00431",
+    "chsc_name_en": "CCC Ming Kei College",
+    "chsc_name_zh": null,
+    "chsc_district": "Yau Tsim Mong",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00432",
+    "chsc_name_en": "CCC Ming Yin College",
+    "chsc_name_zh": null,
+    "chsc_district": "Sham Shui Po",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00433",
+    "chsc_name_en": "CCC Chuen Yuen College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00434",
+    "chsc_name_en": "CCC Tam Lee Lai Fun Memorial Secondary School",
+    "chsc_name_zh": null,
+    "chsc_district": "Tuen Mun",
+    "candidate_edb_matches": [
+      {
+        "edb_id": 652,
+        "edb_school_no": "270202000133",
+        "edb_name_en": "THE CHURCH OF CHRIST IN CHINA TAM LEE LAI FUN MEMORIAL SECONDARY SCHOOL",
+        "edb_name_zh": "\u4e2d\u83ef\u57fa\u7763\u6559\u6703\u8b5a\u674e\u9e97\u82ac\u7d00\u5ff5\u4e2d\u5b78",
+        "edb_district": "Tuen Mun",
+        "similarity": 0.444
+      }
+    ],
+    "name_similarity": 0.444,
+    "district_match": true
+  },
+  {
+    "chsc_school_id": "SCH-00435",
+    "chsc_name_en": "CCC Heep Woh College",
+    "chsc_name_zh": null,
+    "chsc_district": "Wong Tai Sin",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  },
+  {
+    "chsc_school_id": "SCH-00436",
+    "chsc_name_en": "CCC Yenching College",
+    "chsc_name_zh": null,
+    "chsc_district": "Kwai Tsing",
+    "candidate_edb_matches": [],
+    "name_similarity": 0,
+    "district_match": false
+  }
+]

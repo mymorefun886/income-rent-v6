@@ -1,0 +1,25 @@
+# Hermes Agent — Dockerfile v1.0
+# Build: docker build -t hermes-agent .
+# Expects agent source code at build context root
+
+FROM python:3.11-slim
+
+# Runtime deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Python deps (extend as needed)
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Source
+COPY . /app
+
+# Non-root
+RUN useradd -m -u 1000 hermes && chown -R hermes:hermes /app
+USER hermes
+
+CMD ["python", "main.py"]
