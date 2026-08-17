@@ -1,0 +1,150 @@
+# LiteLLM Proxy 配置檔
+# 文件：https://docs.litellm.ai/docs/proxy/configs
+
+# ═══════════════════════════════════════════════════════════
+# 模型列表 — 定義每個 Agent 使用的 LLM
+# ═══════════════════════════════════════════════════════════
+model_list:
+
+  # ── 教育 Agent ─────────────────────────────────────────
+  - model_name: education-main
+    litellm_params:
+      model: anthropic/claude-sonnet-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 4096
+      temperature: 0.7
+
+  - model_name: education-fallback
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+      max_tokens: 4096
+      temperature: 0.7
+
+  # ── 電商 Agent ─────────────────────────────────────────
+  - model_name: ecommerce-main
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      max_tokens: 2048
+      temperature: 0.3
+
+  - model_name: ecommerce-fallback
+    litellm_params:
+      model: anthropic/claude-haiku-4-5-20251001
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 2048
+      temperature: 0.3
+
+  # ── 個人助理 Agent ─────────────────────────────────────
+  - model_name: personal-main
+    litellm_params:
+      model: gemini/gemini-2.0-flash
+      api_key: os.environ/GEMINI_API_KEY
+      max_tokens: 2048
+      temperature: 0.5
+
+  - model_name: personal-fallback
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      max_tokens: 2048
+      temperature: 0.5
+
+  # ── 投資 Agent ─────────────────────────────────────────
+  - model_name: investment-main
+    litellm_params:
+      model: anthropic/claude-opus-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 8192
+      temperature: 0.3
+
+  - model_name: investment-fallback
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+      max_tokens: 8192
+      temperature: 0.3
+
+  # ── LongCat（龍貓）— 美团大模型 ──────────────────────
+  # API 文件：https://longcat.chat/platform/docs/zh/
+  # 格式：OpenAI 兼容
+  # 端點：https://api.longcat.chat/openai
+  # 可用模型：LongCat-2.0（支援繁體中文、推理能力）
+  # 注意：因為 LongCat 不是 LiteLLM 內建已知的模型，
+  #       必須用 openai/<model> 格式讓 LiteLLM 識別為 OpenAI 兼容 API
+  - model_name: longcat
+    litellm_params:
+      model: openai/LongCat-2.0
+      api_base: https://api.longcat.chat/openai
+      api_key: os.environ/LONGCAT_API_KEY
+      max_tokens: 4096
+      temperature: 0.7
+
+  - model_name: longcat-fast
+    litellm_params:
+      model: openai/LongCat-2.0
+      api_base: https://api.longcat.chat/openai
+      api_key: os.environ/LONGCAT_API_KEY
+      max_tokens: 2048
+      temperature: 0.3
+
+  # ── 通用備用 ───────────────────────────────────────────
+  - model_name: default
+    litellm_params:
+      model: openai/LongCat-2.0
+      api_base: https://api.longcat.chat/openai
+      api_key: os.environ/LONGCAT_API_KEY
+      max_tokens: 2048
+
+# ═══════════════════════════════════════════════════════════
+# 全域設定
+# ═══════════════════════════════════════════════════════════
+litellm_settings:
+  # 快取設定（用 Redis）
+  # 注意：redis 連線用 url 即可，不要同時給 host/port/url 會衝突
+  cache: True
+  cache_params:
+    type: redis
+    url: os.environ/REDIS_URL
+    # 語意快取：相似問題命中快取
+    similarity_threshold: 0.95
+    # 快取過期（秒）— 預設 1 小時
+    ttl: 3600
+
+  # 失敗重試
+  num_retries: 3
+  request_timeout: 120
+
+  # 成本控制
+  max_budget: 100.0    # 每月總預算上限（USD）
+  budget_duration: month
+
+  # 日誌
+  turn_off_message_logging: False
+  json_logs: True
+
+  # 回退策略（primary 失敗時依序嘗試）
+  fallbacks:
+    - education-main:
+        - longcat
+        - education-fallback
+    - ecommerce-main:
+        - longcat
+        - ecommerce-fallback
+    - personal-main:
+        - longcat-fast
+        - personal-fallback
+    - investment-main:
+        - longcat
+        - investment-fallback
+
+# ═══════════════════════════════════════════════════════════
+# 伺服器設定
+# ═══════════════════════════════════════════════════════════
+server_settings:
+  # CORS
+  cors_origins: ["*"]
+
+  # 健康檢查
+  health_check: True

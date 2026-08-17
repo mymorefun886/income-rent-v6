@@ -1,0 +1,34 @@
+[
+  {
+    "name": "architecture.md",
+    "path": "docs/architecture.md",
+    "sha": "0dc06a4872990069fbc8ebb633b804fdb8169f23",
+    "size": 5791,
+    "url": "https://api.github.com/repos/corespeed-io/wechatbot/contents/docs/architecture.md?ref=main",
+    "html_url": "https://github.com/corespeed-io/wechatbot/blob/main/docs/architecture.md",
+    "git_url": "https://api.github.com/repos/corespeed-io/wechatbot/git/blobs/0dc06a4872990069fbc8ebb633b804fdb8169f23",
+    "download_url": "https://raw.githubusercontent.com/corespeed-io/wechatbot/main/docs/architecture.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/corespeed-io/wechatbot/contents/docs/architecture.md?ref=main",
+      "git": "https://api.github.com/repos/corespeed-io/wechatbot/git/blobs/0dc06a4872990069fbc8ebb633b804fdb8169f23",
+      "html": "https://github.com/corespeed-io/wechatbot/blob/main/docs/architecture.md"
+    }
+  },
+  {
+    "name": "protocol.md",
+    "path": "docs/protocol.md",
+    "sha": "d2fff42ab5abf8a8654ee7222cba645e4a1c0e7b",
+    "size": 4607,
+    "url": "https://api.github.com/repos/corespeed-io/wechatbot/contents/docs/protocol.md?ref=main",
+    "html_url": "https://github.com/corespeed-io/wechatbot/blob/main/docs/protocol.md",
+    "git_url": "https://api.github.com/repos/corespeed-io/wechatbot/git/blobs/d2fff42ab5abf8a8654ee7222cba645e4a1c0e7b",
+    "download_url": "https://raw.githubusercontent.com/corespeed-io/wechatbot/main/docs/protocol.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/corespeed-io/wechatbot/contents/docs/protocol.md?ref=main",
+      "git": "https://api.github.com/repos/corespeed-io/wechatbot/git/blobs/d2fff42ab5abf8a8654ee7222cba645e4a1c0e7b",
+      "html": "https://github.com/corespeed-io/wechatbot/blob/main/docs/protocol.md"
+    }
+  }
+]

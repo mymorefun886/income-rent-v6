@@ -1,0 +1,10 @@
+{
+  "name": "aios-sync-engine",
+  "version": "0.1.0",
+  "description": "aiOS Education Data Platform — Sync Engine (Phase 1)",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

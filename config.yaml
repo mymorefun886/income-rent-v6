@@ -1,0 +1,20 @@
+# Hermes Agent 設定
+# 路徑: /volume1/hermes-agent/config.yaml
+
+model:
+  provider: auto
+  default: deepseek/deepseek-chat
+  base_url: https://opencode.ai/zen/go/v1
+
+# 備用模型（當 OpenCode Go 不可用時自動切換到 DeepSeek 官方）
+fallback_model:
+  provider: deepseek
+  model: deepseek/deepseek-chat
+
+terminal:
+  backend: local
+  timeout: 180
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true

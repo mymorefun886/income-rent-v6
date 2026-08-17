@@ -1,0 +1,101 @@
+$claudeDir = "$env:USERPROFILE\.claude"
+$nasDir = "Z:\claude-data"
+
+Write-Host "=== Step 0: Ensure Z: is mounted ==="
+if (-not (Test-Path "Z:\")) {
+    Write-Host "Z: not available, mounting..."
+    try {
+        New-SmbMapping -LocalPath Z: -RemotePath "\\192.168.9.2\hermes-agent" -Persistent $true
+        Write-Host "Z: mounted successfully"
+    } catch {
+        Write-Host "FAILED to mount Z:. Error: $_"
+        Write-Host "Trying net use fallback..."
+        net use Z: \\192.168.9.2\hermes-agent /persistent:yes
+        if (-not (Test-Path "Z:\")) {
+            Write-Host "FATAL: Cannot access NAS. Aborting."
+            exit 1
+        }
+    }
+} else {
+    Write-Host "Z: is accessible"
+}
+
+Write-Host ""
+Write-Host "=== Step 1: Create NAS target dir ==="
+New-Item -ItemType Directory -Path $nasDir -Force | Out-Null
+Write-Host "OK: $nasDir"
+
+# Directories to migrate (added memory for persistent context)
+$dirs = @("sessions", "projects", "plans", "tasks")
+
+Write-Host ""
+Write-Host "=== Step 2: Merge local -> NAS ==="
+foreach ($dir in $dirs) {
+    $localPath = Join-Path $claudeDir $dir
+    $nasPath = Join-Path $nasDir $dir
+
+    # Create NAS dir if not exists
+    New-Item -ItemType Directory -Path $nasPath -Force | Out-Null
+
+    # Copy local data to NAS (merge, don't overwrite newer)
+    if (Test-Path $localPath) {
+        $result = robocopy $localPath $nasPath /E /COPY:DAT /R:1 /W:1 /NP /XO 2>&1
+        if ($LASTEXITCODE -lt 8) {
+            Write-Host "Merged: $localPath -> $nasPath"
+        } else {
+            Write-Host "WARNING: robocopy had issues for $dir (code $LASTEXITCODE)"
+        }
+    } else {
+        Write-Host "Skipped: $localPath (doesn't exist)"
+    }
+}
+
+Write-Host ""
+Write-Host "=== Step 3: Replace local dirs with junctions ==="
+foreach ($dir in $dirs) {
+    $linkPath = Join-Path $claudeDir $dir
+    $nasPath = Join-Path $nasDir $dir
+
+    # Remove existing (directory or junction)
+    if (Test-Path $linkPath) {
+        try {
+            Remove-Item $linkPath -Recurse -Force -ErrorAction Stop
+            Write-Host "Removed: $linkPath"
+        } catch {
+            Write-Host "ERROR: Cannot remove $linkPath. Is Claude Desktop running?"
+            Write-Host "Close Claude Desktop first, then re-run this script."
+            exit 1
+        }
+    }
+
+    # Create directory junction
+    cmd /c "mklink /J `"$linkPath`" `"$nasPath`""
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "Junction: $linkPath -> $nasPath"
+    } else {
+        Write-Host "FAILED to create junction for $dir"
+    }
+}
+
+Write-Host ""
+Write-Host "=== Step 4: Verify ==="
+$allOk = $true
+foreach ($dir in $dirs) {
+    $linkPath = Join-Path $claudeDir $dir
+    $item = Get-Item $linkPath -ErrorAction SilentlyContinue
+    if ($item -and $item.LinkType -eq "Junction") {
+        Write-Host "OK: $linkPath -> $($item.Target)"
+    } else {
+        Write-Host "FAIL: $linkPath"
+        $allOk = $false
+    }
+}
+
+if ($allOk) {
+    Write-Host ""
+    Write-Host "All set! You can now restart Claude Desktop."
+    Write-Host "Your chat history will persist on NAS (Z:\\claude-data)"
+} else {
+    Write-Host ""
+    Write-Host "Some junctions failed. Check the output above."
+}

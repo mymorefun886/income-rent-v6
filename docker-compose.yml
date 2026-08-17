@@ -1,0 +1,126 @@
+# Ugreen NAS 多 Agent 部署檔
+# 部署：Hermes Agent Gateway + LiteLLM Proxy + Qdrant
+# 網路：沿用現有 aios-net（外部網路）
+#
+# 啟動前先跑 aios 基礎設施：
+#   cd /volume1/docker/aios/compose && docker compose up -d
+#
+# 再啟動本 stack：
+#   cd /volume1/docker/hermes-stack && docker compose up -d
+
+networks:
+  aios-net:
+    external: true
+
+services:
+  # ═══════════════════════════════════════════════════════════
+  # LiteLLM Proxy — LLM API 統一閘道
+  # ═══════════════════════════════════════════════════════════
+  litellm-proxy:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: hermes-litellm
+    restart: unless-stopped
+    ports:
+      - "8643:4000"
+    volumes:
+      - ./litellm-config.yaml:/app/config.yaml:ro
+    command: ["--config", "/app/config.yaml", "--port", "4000", "--num_workers", "1"]
+    environment:
+      # 從 .env 載入 API keys
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      # Redis 快取（用現有的 aios-redis）
+      - REDIS_HOST=aios-redis
+      - REDIS_PORT=6379
+      - REDIS_URL=redis://aios-redis:6379/1
+      # 成本控制
+      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY:-sk-hermes-master}
+      - LITELLM_SALT_KEY=${LITELLM_SALT_KEY:-salt-key-change-me}
+      # 代理設定（預設不經過代理，直接連線 API）
+      # 如果未來需要代理，取消下面註解
+      # - HTTP_PROXY=${HTTP_PROXY:-http://192.168.9.9:7897}
+      # - HTTPS_PROXY=${HTTPS_PROXY:-http://192.168.9.9:7897}
+      - NO_PROXY=*
+    networks:
+      - aios-net
+    # 注意：aios-redis 在另一個 compose，不能用 depends_on
+    # 啟動前請先確認 aios 基礎設施已運行
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+
+  # ═══════════════════════════════════════════════════════════
+  # Hermes Agent Gateway — 多 Agent 框架
+  # ═══════════════════════════════════════════════════════════
+  hermes-gateway:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-gateway
+    restart: unless-stopped
+    command: gateway run
+    ports:
+      - "8642:8642"
+    environment:
+      - TZ=Asia/Shanghai
+      - API_SERVER_ENABLED=true
+      - API_SERVER_HOST=0.0.0.0
+      - API_SERVER_PORT=8642
+      # LLM 端點指向 LiteLLM Proxy
+      - HERMES_LLM_ENDPOINT=http://litellm-proxy:4000/v1
+      - HERMES_LLM_API_KEY=${LITELLM_MASTER_KEY:-sk-hermes-master}
+      # 預設模型（各 Profile 可覆蓋）
+      - HERMES_LLM_MODEL=education-main
+      # 代理設定（預設不經過代理）
+      # - HTTP_PROXY=${HTTP_PROXY:-http://192.168.9.9:7897}
+      # - HTTPS_PROXY=${HTTPS_PROXY:-http://192.168.9.9:7897}
+      - NO_PROXY=*
+      # 資料路徑
+      - HERMES_DATA_DIR=/opt/data
+    volumes:
+      - hermes-data:/opt/data
+      - ./profiles:/opt/profiles:ro
+    networks:
+      - aios-net
+    depends_on:
+      - litellm-proxy
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2.0'
+
+  # ═══════════════════════════════════════════════════════════
+  # Qdrant — 向量資料庫（hermes 專用，不與 aios 混用）
+  # ═══════════════════════════════════════════════════════════
+  hermes-qdrant:
+    image: qdrant/qdrant:latest
+    container_name: hermes-qdrant
+    restart: unless-stopped
+    ports:
+      - "6334:6333"
+    volumes:
+      - hermes-qdrant-data:/qdrant/storage
+    networks:
+      - aios-net
+    environment:
+      - QDRANT__SERVICE__HOST=0.0.0.0
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+      - QDRANT__LOG_LEVEL=INFO
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+
+# ═══════════════════════════════════════════════════════════
+# 持久化卷
+# ═══════════════════════════════════════════════════════════
+volumes:
+  hermes-data:
+    driver: local
+  hermes-qdrant-data:
+    driver: local

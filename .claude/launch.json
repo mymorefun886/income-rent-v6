@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hermes-studio",
+      "runtimeExecutable": "ssh",
+      "runtimeArgs": [
+        "-i", "$env:USERPROFILE\.ssh\id_ed25519",
+        "-o", "StrictHostKeyChecking=no",
+        "-L", "6060:192.168.9.2:6060",
+        "-N",
+        "morefun886@192.168.9.2"
+      ],
+      "port": 6060
+    }
+  ]
+}

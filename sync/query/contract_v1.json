@@ -1,0 +1,146 @@
+// query/contract_v1.json — aiOS Education Query API Contract v1.0
+// Frozen: 2026-06-14
+// Breaking changes require contract version bump.
+{
+  "contract_version": "v1.0",
+  "frozen_at": "2026-06-14",
+  "principles": {
+    "deterministic": "Same inputs + same data = identical outputs. No randomness.",
+    "traceable": "Every score has a named source. Every filter is logged.",
+    "no_signal_influence": "core.school_signal data never enters scoring or filtering.",
+    "stable_schema": "Output field names, types, and ordering are locked."
+  },
+
+  "apis": {
+    "schools_in_net": {
+      "description": "List schools in a given POA or SSPA net.",
+      "input": {
+        "net_type":   { "type": "string", "required": true,  "values": ["POA", "SSPA"] },
+        "net_code":   { "type": "string", "required": true,  "example": "41" },
+        "level":      { "type": "string", "required": false, "values": ["kindergarten","primary","secondary","special"] }
+      },
+      "output": {
+        "meta":  { "net_type": "string", "net_code": "string", "level": "string|null", "count": "integer" },
+        "schools": "Array<{school_code, name_tc, name_en, school_type, district, lat, lng, net_code, mtr_distance_m, nearest_mtr_stn, bus_distance_m, nearest_bus_stop, religion, medium_of_instruction, sponsoring_body, vacancy_summary, signals}>"
+      },
+      "ordering": "school_type ASC, name_tc ASC"
+    },
+
+    "get_school_by_name": {
+      "description": "Find schools by name (substring match, case-insensitive).",
+      "input": {
+        "name": { "type": "string", "required": true, "example": "呂明才" }
+      },
+      "output": {
+        "meta":  { "query": "string", "count": "integer" },
+        "schools": "Array<{school_code, name_tc, name_en, level, school_type, district, address_tc, address_en, phone, website, gender, lat, lng, religion, medium_of_instruction, sponsoring_body, student_category, joining_scheme, school_category, curriculum_type, no_of_classrooms, outdoor_playground, indoor_playground, founding_year, teacher_count, class_count, nearest_mtr_stn, mtr_distance_m, nearest_bus_stop, bus_distance_m, nets, vacancy, signals}>"
+      },
+      "ordering": "exact match first, then name_tc"
+    },
+
+    "search_schools": {
+      "description": "Multi-constraint filtered search. All filters are exact or range-based.",
+      "input": {
+        "level":                { "type": "string",  "required": false },
+        "district":             { "type": "string",  "required": false },
+        "school_type":          { "type": "string",  "required": false },
+        "religion":             { "type": "string",  "required": false, "note": "substring match, case-insensitive" },
+        "medium_of_instruction": { "type": "string",  "required": false, "note": "substring match, case-insensitive" },
+        "mtr_distance_max":     { "type": "integer", "required": false, "unit": "meters" },
+        "vacancy_grade":        { "type": "string",  "required": false, "values": ["K1","K2","K3"] },
+        "net_type":             { "type": "string",  "required": false, "note": "requires net_code" },
+        "net_code":             { "type": "string",  "required": false },
+        "limit":                { "type": "integer", "required": false, "default": 50 },
+        "offset":               { "type": "integer", "required": false, "default": 0 }
+      },
+      "output": {
+        "meta":  { "filters": "object", "count": "integer", "limit": "integer", "offset": "integer" },
+        "schools": "Array<{school_code, name_tc, name_en, level, school_type, district, lat, lng, mtr_distance_m, nearest_mtr_stn, bus_distance_m, nearest_bus_stop, religion, medium_of_instruction, sponsoring_body, student_category, joining_scheme, school_category, curriculum_type, no_of_classrooms, outdoor_playground, indoor_playground}>"
+      },
+      "ordering": "school_type ASC, name_tc ASC"
+    },
+
+    "school_accessibility": {
+      "description": "Find schools within a radius of a given location.",
+      "input": {
+        "lat":       { "type": "number",  "required": true },
+        "lng":       { "type": "number",  "required": true },
+        "radius_m":  { "type": "integer", "required": false, "default": 500 },
+        "level":     { "type": "string",  "required": false },
+        "mtr_only":  { "type": "boolean", "required": false, "default": false, "note": "filter to schools with MTR within radius" }
+      },
+      "output": {
+        "meta":  { "center": "{lat, lng}", "radius_m": "integer", "level": "string|null", "count": "integer" },
+        "schools": "Array<{school_code, name_tc, name_en, level, school_type, district, distance_m, nearest_mtr_stn, mtr_distance_m, nearest_bus_stop, bus_distance_m, religion, medium_of_instruction, sponsoring_body}>"
+      },
+      "ordering": "distance_m ASC"
+    },
+
+    "compare_schools": {
+      "description": "Side-by-side comparison of 2-5 schools.",
+      "input": {
+        "school_codes": { "type": "string[]", "required": true, "min": 2, "max": 5 }
+      },
+      "output": {
+        "meta":  { "codes": "string[]", "count": "integer" },
+        "schools": "Array<{school_code, name_tc, name_en, level, school_type, district, religion, medium_of_instruction, sponsoring_body, student_category, curriculum_type, joining_scheme, no_of_classrooms, teacher_count, class_count, outdoor_playground, indoor_playground, founding_year, mtr_distance_m, nearest_mtr_stn, bus_distance_m, nearest_bus_stop, nets, vacancy, signals}>"
+      },
+      "ordering": "input order preserved"
+    },
+
+    "recommend_schools": {
+      "description": "Rule-based recommendation with deterministic scoring.",
+      "input": {
+        "level":                { "type": "string",  "required": true,  "values": ["kindergarten","primary","secondary"] },
+        "religion":             { "type": "string",  "required": false },
+        "medium_of_instruction": { "type": "string",  "required": false },
+        "net_type":             { "type": "string",  "required": false },
+        "net_code":             { "type": "string",  "required": false },
+        "mtr_distance_max":     { "type": "integer", "required": false },
+        "vacancy_required":     { "type": "boolean", "required": false },
+        "limit":                { "type": "integer", "required": false, "default": 10 }
+      },
+      "scoring": {
+        "religion_match":      { "weight": 10, "trigger": "profile.religion contains input.religion (case-insensitive)" },
+        "moi_match":           { "weight": 10, "trigger": "profile.medium_of_instruction contains input.medium_of_instruction" },
+        "mtr_under_500":       { "weight": 15, "trigger": "accessibility.mtr_distance_m <= 500" },
+        "mtr_under_1000":      { "weight": 10, "trigger": "accessibility.mtr_distance_m <= 1000 (and >500)" },
+        "has_vacancy":         { "weight": 5,  "trigger": "any grade has vacancy_count > 0 (when vacancy_required=true)" },
+        "outdoor_playground":  { "weight": 5,  "trigger": "KG only: profile.outdoor_playground = true" },
+        "non_profit":          { "weight": 5,  "trigger": "KG only: profile.school_category = 'Non-profit-making'" },
+        "joining_scheme":      { "weight": 3,  "trigger": "KG only: profile.joining_scheme = 'Joining'" }
+      },
+      "output": {
+        "meta":  { "preferences": "object", "count": "integer", "scoring": "deterministic" },
+        "schools": "Array<{school_code, name_tc, name_en, level, school_type, district, religion, medium_of_instruction, sponsoring_body, student_category, joining_scheme, school_category, mtr_distance_m, nearest_mtr_stn, bus_distance_m, nearest_bus_stop, score, signals, reasons}>"
+      },
+      "ordering": "score DESC, mtr_distance_m ASC",
+      "scorer_version": "v1.0"
+    }
+  },
+
+  "explanation_trace": {
+    "description": "For every recommendation, buildTrace() produces a full decision path.",
+    "output": {
+      "decision_path": { "query": "object", "scorer_version": "string", "deterministic": true, "total_candidates": "integer", "rule_count": 8 },
+      "score_rules": "object (all 8 rules with weights and labels)",
+      "results": "Array<{school_code, name_tc, name_en, total_score, score_breakdown: object, reasons: Array<{rule, label, score}>, signals: Array<{non_causal: true, ...}>}>",
+      "meta": { "frozen_at": "2026-06-14", "contract_version": "v1.0", "reproducibility": "guaranteed" }
+    }
+  },
+
+  "non_breaking_changes_allowed": [
+    "Adding new optional parameters to existing APIs",
+    "Adding new score rules (with version bump)",
+    "Optimizing SQL without changing output",
+    "Fixing NULL handling in edge cases"
+  ],
+
+  "breaking_changes_forbidden": [
+    "Removing or renaming output fields",
+    "Changing scoring formula weights",
+    "Changing ordering behavior",
+    "Adding randomness or ML dependency",
+    "Allowing signals to influence ranking"
+  ]
+}

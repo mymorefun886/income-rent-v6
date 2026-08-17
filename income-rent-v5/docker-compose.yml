@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: income-api-v6
+    restart: unless-stopped
+    ports:
+      - "8788:8788"
+    volumes:
+      - ./storage:/app/storage
+    environment:
+      - NODE_ENV=production
+      - PORT=8788
+      - HOST=0.0.0.0
+      - DATABASE_URL=/app/storage/rental.db
+      - JWT_SECRET=${JWT_SECRET:-change-this-in-production-please}
+      - JWT_EXPIRES_IN=15m
+      - JWT_REFRESH_EXPIRES_IN=7d
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:8080}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
+      - STORAGE_DIR=/app/storage
+      - BACKUP_DIR=/app/storage/backups
+      - UPLOADS_DIR=/app/storage/uploads
+    networks:
+      - income-net-v6
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: income-web-v6
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+    networks:
+      - income-net-v6
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: income-cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    environment:
+      - TUNNEL_ORIGIN_ENABLE_HTTP2=true
+    networks:
+      - income-net-v6
+    depends_on:
+      - web
+
+networks:
+  income-net-v6:
+    name: income-net-v6
+    driver: bridge
