@@ -38,7 +38,7 @@ export function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="mb-4 text-5xl">🏠</div>
-          <CardTitle className="text-2xl">收租佬系统 V5</CardTitle>
+          <CardTitle className="text-2xl">收租佬系统 V8</CardTitle>
           <CardDescription>请登录以继续</CardDescription>
         </CardHeader>
         <CardContent>

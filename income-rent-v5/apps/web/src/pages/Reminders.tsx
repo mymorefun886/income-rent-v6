@@ -1,4 +1,4 @@
-// Reminders page - V6
+// Reminders page - V8
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { remindersApi } from '@/lib/api';

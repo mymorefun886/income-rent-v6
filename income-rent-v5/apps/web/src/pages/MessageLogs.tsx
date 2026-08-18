@@ -1,4 +1,4 @@
-// Message Logs page - V6
+// Message Logs page - V8
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { messageLogsApi } from '@/lib/api';

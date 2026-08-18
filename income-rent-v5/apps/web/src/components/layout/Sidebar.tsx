@@ -95,7 +95,7 @@ export function Sidebar({ groups, topLevelItems, bottomItems = [], openGroups, o
     <aside className="flex w-64 flex-col border-r bg-sidebar" role="navigation" aria-label="主导航">
       <div className="flex h-16 items-center gap-2 border-b px-6">
         <span className="text-2xl" aria-hidden="true">🏠</span>
-        <span className="text-lg font-bold">收租佬 V6</span>
+        <span className="text-lg font-bold">收租佬 V8</span>
       </div>
       <nav className="flex-1 space-y-1 overflow-y-auto p-4" aria-label="页面导航">
         {/* Top-level items (Dashboard) */}
