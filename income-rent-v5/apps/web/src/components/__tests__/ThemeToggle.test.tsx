@@ -1,4 +1,4 @@
-// Unit tests for ThemeToggle component
+// Unit tests for ThemeToggle component (segmented control)
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -10,39 +10,38 @@ describe('ThemeToggle', () => {
     vi.clearAllMocks();
   });
 
-  it('should render button', () => {
+  it('should render segmented control with 3 options', () => {
     render(<ThemeToggle />);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    const radios = screen.getAllByRole('radio');
+    expect(radios).toHaveLength(3);
   });
 
-  it('should show moon icon for system theme (defaults to light)', () => {
-    useThemeStore.setState({ theme: 'system' });
+  it('should render radiogroup', () => {
     render(<ThemeToggle />);
-    // System theme shows moon (to switch to dark)
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByRole('radiogroup')).toBeInTheDocument();
   });
 
-  it('should show sun icon for dark theme', () => {
+  it('should show active state for current theme', () => {
     useThemeStore.setState({ theme: 'dark' });
     render(<ThemeToggle />);
-    // Dark theme shows sun (to switch to light)
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    const darkButton = screen.getByRole('radio', { name: '深色' });
+    expect(darkButton).toHaveAttribute('aria-checked', 'true');
   });
 
-  it('should toggle theme on click', () => {
+  it('should set theme on click', () => {
     useThemeStore.setState({ theme: 'light' });
     render(<ThemeToggle />);
 
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
+    const darkButton = screen.getByRole('radio', { name: '深色' });
+    fireEvent.click(darkButton);
 
-    // Should toggle from light to dark
     expect(useThemeStore.getState().theme).toBe('dark');
   });
 
-  it('should have accessible label', () => {
+  it('should have accessible labels on all buttons', () => {
     render(<ThemeToggle />);
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-label');
+    expect(screen.getByRole('radio', { name: '浅色' })).toBeInTheDocument();
+    expect(screen.getByRole('radio', { name: '深色' })).toBeInTheDocument();
+    expect(screen.getByRole('radio', { name: '系统' })).toBeInTheDocument();
   });
 });

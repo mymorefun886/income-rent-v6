@@ -1,7 +1,7 @@
 // Badge UI Component
 import { cn } from '@/lib/utils';
 
-export type BadgeVariant = 'default' | 'secondary' | 'outline' | 'destructive';
+export type BadgeVariant = 'default' | 'secondary' | 'outline' | 'destructive' | 'success' | 'warning' | 'info';
 
 interface BadgeProps {
   children: React.ReactNode;
@@ -14,6 +14,9 @@ const variantStyles: Record<BadgeProps['variant'] & string, string> = {
   secondary: 'bg-secondary text-secondary-foreground',
   outline: 'border border-input bg-background',
   destructive: 'bg-destructive text-destructive-foreground',
+  success: 'bg-success text-success-foreground',
+  warning: 'bg-warning text-warning-foreground',
+  info: 'bg-info text-info-foreground',
 };
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {

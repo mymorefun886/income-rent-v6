@@ -5,7 +5,25 @@ import { recordsApi, wechatApi } from '@/lib/api';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { Textarea } from '@/components/ui/Textarea';
+import { Checkbox } from '@/components/ui/Checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/Select';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/Dialog';
+import { AlertDialog } from '@/components/ui/AlertDialog';
 import { Badge } from '@/components/ui/Badge';
+import { useToast } from '@/stores/toast';
 import {
   Receipt, Plus, Search, Filter, CheckCircle2, Clock, AlertCircle,
   Pencil, Trash2, X, Save, Send, DollarSign, Droplets, Zap,
@@ -90,16 +108,13 @@ function RecordDetailModal({ record, onClose }: { record: Record; onClose: () =>
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-background border-b p-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">账单详情 - {record.cycle}</h2>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+    <Dialog open={true} onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>账单详情 - {record.cycle}</DialogTitle>
+        </DialogHeader>
 
-        <div className="p-4 space-y-4">
+        <div className="space-y-4">
           {/* Tenant Info */}
           <div className="bg-muted/30 p-4 rounded-lg">
             <div className="grid grid-cols-2 gap-4 text-sm">
@@ -256,15 +271,15 @@ function RecordDetailModal({ record, onClose }: { record: Record; onClose: () =>
               <div>
                 <span className="text-muted-foreground">状态：</span>
                 <Badge variant={
-                  record.status === '已收' ? 'default' :
-                  record.status === '部分收款' ? 'secondary' : 'destructive'
+                  record.status === '已收' ? 'success' :
+                  record.status === '部分收款' ? 'warning' : 'destructive'
                 }>
                   {record.status}
                 </Badge>
               </div>
               <div>
                 <span className="text-muted-foreground">发送：</span>
-                <Badge variant={record.sentStatus === 'sent' ? 'default' : 'outline'}>
+                <Badge variant={record.sentStatus === 'sent' ? 'success' : 'outline'}>
                   {record.sentStatus === 'sent' ? '已发送' : '未发送'}
                 </Badge>
               </div>
@@ -276,8 +291,8 @@ function RecordDetailModal({ record, onClose }: { record: Record; onClose: () =>
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -327,16 +342,13 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
   const waterCost = formData.noWaterMeter ? 0 : waterUsage * (parseFloat(formData.waterPrice) || 0);
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-background border-b p-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">编辑账单 - {record.cycle}</h2>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+    <Dialog open={true} onOpenChange={onClose}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>编辑账单 - {record.cycle}</DialogTitle>
+        </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="p-4 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Basic Info */}
           <div className="border-b pb-4">
             <h3 className="font-medium mb-3">基本信息</h3>
@@ -382,15 +394,19 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">状态</label>
-                <select
+                <Select
                   value={formData.status}
-                  onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-md bg-background"
+                  onValueChange={(value) => setFormData({ ...formData, status: value })}
                 >
-                  <option value="未收">未收</option>
-                  <option value="部分收款">部分收款</option>
-                  <option value="已收">已收</option>
-                </select>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="未收">未收</SelectItem>
+                    <SelectItem value="部分收款">部分收款</SelectItem>
+                    <SelectItem value="已收">已收</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </div>
@@ -502,12 +518,10 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
               水表
             </h3>
             <div className="flex items-center gap-2 mb-3">
-              <input
-                type="checkbox"
-                checked={formData.noWaterMeter}
-                onChange={(e) => setFormData({ ...formData, noWaterMeter: e.target.checked })}
-                className="w-4 h-4 rounded border-gray-300"
+              <Checkbox
                 id="noWaterMeter"
+                checked={formData.noWaterMeter}
+                onCheckedChange={(checked) => setFormData({ ...formData, noWaterMeter: !!checked })}
               />
               <label htmlFor="noWaterMeter" className="text-sm">无水表</label>
             </div>
@@ -573,16 +587,20 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">收款方式</label>
-                <select
+                <Select
                   value={formData.method}
-                  onChange={(e) => setFormData({ ...formData, method: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-md bg-background"
+                  onValueChange={(value) => setFormData({ ...formData, method: value })}
                 >
-                  <option value="微信">微信</option>
-                  <option value="支付寶">支付寶</option>
-                  <option value="银行转账">银行转账</option>
-                  <option value="現金">現金</option>
-                </select>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="微信">微信</SelectItem>
+                    <SelectItem value="支付寶">支付寶</SelectItem>
+                    <SelectItem value="银行转账">银行转账</SelectItem>
+                    <SelectItem value="現金">現金</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </div>
@@ -600,12 +618,10 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
                 />
               </div>
               <div className="flex items-center gap-2 pt-6">
-                <input
-                  type="checkbox"
-                  checked={formData.checkout}
-                  onChange={(e) => setFormData({ ...formData, checkout: e.target.checked })}
-                  className="w-4 h-4 rounded border-gray-300"
+                <Checkbox
                   id="checkout"
+                  checked={formData.checkout}
+                  onCheckedChange={(checked) => setFormData({ ...formData, checkout: !!checked })}
                 />
                 <label htmlFor="checkout" className="text-sm">退房结账</label>
               </div>
@@ -615,25 +631,25 @@ function RecordEditModal({ record, onClose, onSave }: { record: Record; onClose:
           {/* Notes */}
           <div className="pb-4">
             <h3 className="font-medium mb-3">备注</h3>
-            <textarea
+            <Textarea
               value={formData.note}
               onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-              className="w-full px-3 py-2 border rounded-md bg-background min-h-[60px]"
               placeholder="备注信息..."
+              className="min-h-[60px]"
             />
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-2 pt-4 border-t">
+          <DialogFooter>
             <Button type="button" variant="outline" onClick={onClose}>取消</Button>
             <Button type="submit">
               <Save className="mr-2 h-4 w-4" />
               保存
             </Button>
-          </div>
+          </DialogFooter>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -653,16 +669,13 @@ function QuickReceiveModal({ record, onClose, onSave }: { record: Record; onClos
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-lg shadow-lg max-w-md w-full">
-        <div className="border-b p-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">快速收款</h2>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+    <Dialog open={true} onOpenChange={onClose}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>快速收款</DialogTitle>
+        </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="p-4 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="bg-muted/30 p-3 rounded-lg space-y-1 text-sm">
             <div className="flex justify-between">
               <span className="text-muted-foreground">租客：</span>
@@ -715,16 +728,20 @@ function QuickReceiveModal({ record, onClose, onSave }: { record: Record; onClos
 
           <div>
             <label className="block text-sm font-medium mb-1">收款方式</label>
-            <select
+            <Select
               value={formData.method}
-              onChange={(e) => setFormData({ ...formData, method: e.target.value })}
-              className="w-full px-3 py-2 border rounded-md bg-background"
+              onValueChange={(value) => setFormData({ ...formData, method: value })}
             >
-              <option value="微信">微信</option>
-              <option value="支付寶">支付寶</option>
-              <option value="银行转账">银行转账</option>
-              <option value="現金">現金</option>
-            </select>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="微信">微信</SelectItem>
+                <SelectItem value="支付寶">支付寶</SelectItem>
+                <SelectItem value="银行转账">银行转账</SelectItem>
+                <SelectItem value="現金">現金</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div>
@@ -735,16 +752,16 @@ function QuickReceiveModal({ record, onClose, onSave }: { record: Record; onClos
             />
           </div>
 
-          <div className="flex justify-end gap-2 pt-2">
+          <DialogFooter>
             <Button type="button" variant="outline" onClick={onClose}>取消</Button>
             <Button type="submit">
               <DollarSign className="mr-2 h-4 w-4" />
               确认收款
             </Button>
-          </div>
+          </DialogFooter>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -756,10 +773,12 @@ export function RecordsPage() {
   const [editingRecord, setEditingRecord] = useState<Record | null>(null);
   const [viewingRecord, setViewingRecord] = useState<Record | null>(null);
   const [receiveRecord, setReceiveRecord] = useState<Record | null>(null);
+  const [deletingRecord, setDeletingRecord] = useState<Record | null>(null);
   const [expandedBuildings, setExpandedBuildings] = useState<Set<string>>(new Set());
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   const queryClient = useQueryClient();
+  const { toast } = useToast();
 
   const { data, isLoading } = useQuery({
     queryKey: ['records', filterCycle, filterStatus, filterBuilding],
@@ -779,6 +798,10 @@ export function RecordsPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['records'] });
       setEditingRecord(null);
+      toast({ title: '保存成功', description: '账单已更新', variant: 'success' });
+    },
+    onError: () => {
+      toast({ title: '保存失败', description: '请稍后重试', variant: 'destructive' });
     },
   });
 
@@ -786,6 +809,11 @@ export function RecordsPage() {
     mutationFn: (id: string) => recordsApi.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['records'] });
+      setDeletingRecord(null);
+      toast({ title: '删除成功', description: '账单已删除', variant: 'success' });
+    },
+    onError: () => {
+      toast({ title: '删除失败', description: '请稍后重试', variant: 'destructive' });
     },
   });
 
@@ -794,6 +822,10 @@ export function RecordsPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['records'] });
       setSelectedIds(new Set());
+      toast({ title: '发送成功', description: '账单已标记为已发送', variant: 'success' });
+    },
+    onError: () => {
+      toast({ title: '发送失败', description: '请稍后重试', variant: 'destructive' });
     },
   });
 
@@ -817,10 +849,10 @@ export function RecordsPage() {
     },
     onSuccess: (data) => {
       if (data && 'cancelled' in data && data.cancelled) return;
-      alert('账单已发送到微信群');
+      toast({ title: '发送成功', description: '账单已发送到微信群', variant: 'success' });
     },
     onError: (error) => {
-      alert('发送失败：' + (error instanceof Error ? error.message : '未知错误'));
+      toast({ title: '发送失败', description: error instanceof Error ? error.message : '未知错误', variant: 'destructive' });
     },
   });
 
@@ -914,36 +946,39 @@ export function RecordsPage() {
             className="w-full pl-10 pr-4 py-2 border rounded-md bg-background"
           />
         </div>
-        <select
-          value={filterCycle}
-          onChange={(e) => setFilterCycle(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-background"
-        >
-          <option value="">所有账期</option>
-          {cycles.map(c => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-        <select
-          value={filterBuilding}
-          onChange={(e) => setFilterBuilding(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-background"
-        >
-          <option value="">所有建筑</option>
-          {buildings.map(b => (
-            <option key={b} value={b}>{b}</option>
-          ))}
-        </select>
-        <select
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-background"
-        >
-          <option value="">所有状态</option>
-          <option value="未收">未收</option>
-          <option value="部分收款">部分收款</option>
-          <option value="已收">已收</option>
-        </select>
+        <Select value={filterCycle} onValueChange={setFilterCycle}>
+          <SelectTrigger className="w-[140px]">
+            <SelectValue placeholder="所有账期" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">所有账期</SelectItem>
+            {cycles.map(c => (
+              <SelectItem key={c} value={c}>{c}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={filterBuilding} onValueChange={setFilterBuilding}>
+          <SelectTrigger className="w-[160px]">
+            <SelectValue placeholder="所有建筑" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">所有建筑</SelectItem>
+            {buildings.map(b => (
+              <SelectItem key={b} value={b}>{b}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={filterStatus} onValueChange={setFilterStatus}>
+          <SelectTrigger className="w-[130px]">
+            <SelectValue placeholder="所有状态" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">所有状态</SelectItem>
+            <SelectItem value="未收">未收</SelectItem>
+            <SelectItem value="部分收款">部分收款</SelectItem>
+            <SelectItem value="已收">已收</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Select All */}
@@ -1094,11 +1129,7 @@ export function RecordsPage() {
                                 <Button
                                   variant="ghost"
                                   size="sm"
-                                  onClick={() => {
-                                    if (confirm('确定要刪除这笔账单嗎？')) {
-                                      deleteMutation.mutate(record.id);
-                                    }
-                                  }}
+                                  onClick={() => setDeletingRecord(record)}
                                   title="刪除"
                                   className="text-destructive"
                                 >
@@ -1154,6 +1185,19 @@ export function RecordsPage() {
           }}
         />
       )}
+
+      {/* Delete Confirmation */}
+      <AlertDialog
+        open={!!deletingRecord}
+        onOpenChange={(open) => !open && setDeletingRecord(null)}
+        title="删除账单"
+        description={deletingRecord ? `确定要删除这笔账单吗？此操作不可撤销。` : undefined}
+        confirmText="删除"
+        cancelText="取消"
+        variant="destructive"
+        loading={deleteMutation.isPending}
+        onConfirm={() => deletingRecord && deleteMutation.mutate(deletingRecord.id)}
+      />
     </div>
   );
 }

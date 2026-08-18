@@ -4,9 +4,27 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { propertiesApi } from '@/lib/api';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Building2, Plus, Home, Search, Filter, Pencil, Trash2, X, Save } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
+import { Textarea } from '@/components/ui/Textarea';
+import { Checkbox } from '@/components/ui/Checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/Select';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/Dialog';
+import { AlertDialog } from '@/components/ui/AlertDialog';
+import { Badge } from '@/components/ui/Badge';
+import { useToast } from '@/stores/toast';
+import { Building2, Plus, Home, Search, Filter, Pencil, Trash2, X, Save } from 'lucide-react';
 
 const statusColors: Record<string, string> = {
   '已出租': 'bg-green-500',
@@ -85,16 +103,13 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-background border-b p-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">编辑房源 - {property.title}</h2>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+    <Dialog open={!!property} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>编辑房源 - {property.title}</DialogTitle>
+        </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="p-4 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Basic Info */}
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -134,16 +149,19 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">户型</label>
-              <select
+              <Select
                 value={formData.layout}
-                onChange={(e) => setFormData({ ...formData, layout: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md bg-background"
+                onValueChange={(value) => setFormData({ ...formData, layout: value })}
               >
-                <option value="">请选择户型</option>
-                {LAYOUT_OPTIONS.map(opt => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder="请选择户型" />
+                </SelectTrigger>
+                <SelectContent>
+                  {LAYOUT_OPTIONS.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
@@ -169,27 +187,35 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-1">状态</label>
-              <select
+              <Select
                 value={formData.status}
-                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md bg-background"
+                onValueChange={(value) => setFormData({ ...formData, status: value })}
               >
-                <option value="空置">空置</option>
-                <option value="已出租">已出租</option>
-                <option value="自用">自用</option>
-                <option value="闲置">闲置</option>
-              </select>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="空置">空置</SelectItem>
+                  <SelectItem value="已出租">已出租</SelectItem>
+                  <SelectItem value="自用">自用</SelectItem>
+                  <SelectItem value="闲置">闲置</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">用途</label>
-              <select
+              <Select
                 value={formData.usageType}
-                onChange={(e) => setFormData({ ...formData, usageType: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md bg-background"
+                onValueChange={(value) => setFormData({ ...formData, usageType: value })}
               >
-                <option value="出租">出租</option>
-                <option value="自用（不出租）">自用（不出租）</option>
-              </select>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="出租">出租</SelectItem>
+                  <SelectItem value="自用（不出租）">自用（不出租）</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
@@ -230,16 +256,19 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">收款账户</label>
-                <select
+                <Select
                   value={formData.bankAccount}
-                  onChange={(e) => setFormData({ ...formData, bankAccount: e.target.value })}
-                  className="w-full px-3 py-2 border rounded-md bg-background"
+                  onValueChange={(value) => setFormData({ ...formData, bankAccount: value })}
                 >
-                  <option value="">请选择</option>
-                  <option value="微信">微信</option>
-                  <option value="支付宝">支付宝</option>
-                  <option value="银行转账">银行转账</option>
-                </select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="请选择" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="微信">微信</SelectItem>
+                    <SelectItem value="支付宝">支付宝</SelectItem>
+                    <SelectItem value="银行转账">银行转账</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">余额</label>
@@ -258,17 +287,15 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
             <div className="grid grid-cols-4 gap-2 mb-3">
               {TAG_OPTIONS.map(tag => (
                 <label key={tag} className="flex items-center gap-2 text-sm cursor-pointer">
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={formData.tags.includes(tag)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
+                    onCheckedChange={(checked) => {
+                      if (checked) {
                         setFormData({ ...formData, tags: [...formData.tags, tag] });
                       } else {
                         setFormData({ ...formData, tags: formData.tags.filter((t: string) => t !== tag) });
                       }
                     }}
-                    className="w-4 h-4 rounded border-gray-300"
                   />
                   {tag}
                 </label>
@@ -302,17 +329,15 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
             <div className="grid grid-cols-4 gap-2 mb-3">
               {INVENTORY_OPTIONS.map(item => (
                 <label key={item} className="flex items-center gap-2 text-sm cursor-pointer">
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={formData.roomInventory.includes(item)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
+                    onCheckedChange={(checked) => {
+                      if (checked) {
                         setFormData({ ...formData, roomInventory: [...formData.roomInventory, item] });
                       } else {
                         setFormData({ ...formData, roomInventory: formData.roomInventory.filter((i: string) => i !== item) });
                       }
                     }}
-                    className="w-4 h-4 rounded border-gray-300"
                   />
                   {item}
                 </label>
@@ -343,25 +368,25 @@ function PropertyEditModal({ property, onClose, onSave }: { property: any; onClo
           {/* Notes */}
           <div className="border-t pt-4">
             <h3 className="font-medium mb-3">备注</h3>
-            <textarea
+            <Textarea
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3 py-2 border rounded-md bg-background min-h-[80px]"
               placeholder="其他备注信息..."
+              className="min-h-[80px]"
             />
           </div>
 
           {/* Actions */}
-          <div className="border-t pt-4 flex justify-end gap-2">
+          <DialogFooter>
             <Button type="button" variant="outline" onClick={onClose}>取消</Button>
             <Button type="submit">
               <Save className="mr-2 h-4 w-4" />
               保存
             </Button>
-          </div>
+          </DialogFooter>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
@@ -370,8 +395,10 @@ export function PropertiesPage() {
   const [filterBuilding, setFilterBuilding] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
   const [editingProperty, setEditingProperty] = useState<any>(null);
+  const [deletingProperty, setDeletingProperty] = useState<any>(null);
 
   const queryClient = useQueryClient();
+  const { toast } = useToast();
 
   const { data, isLoading } = useQuery({
     queryKey: ['properties', filterBuilding, filterStatus],
@@ -387,6 +414,10 @@ export function PropertiesPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['properties'] });
       setEditingProperty(null);
+      toast({ title: '保存成功', description: '房源信息已更新', variant: 'success' });
+    },
+    onError: () => {
+      toast({ title: '保存失败', description: '请稍后重试', variant: 'destructive' });
     },
   });
 
@@ -394,6 +425,10 @@ export function PropertiesPage() {
     mutationFn: (id: string) => propertiesApi.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['properties'] });
+      toast({ title: '删除成功', description: '房源已删除', variant: 'success' });
+    },
+    onError: () => {
+      toast({ title: '删除失败', description: '请稍后重试', variant: 'destructive' });
     },
   });
 
@@ -438,8 +473,13 @@ export function PropertiesPage() {
   };
 
   const handleDelete = (property: any) => {
-    if (confirm(`确定要删除房源 "${property.title}" 吗？`)) {
-      deleteMutation.mutate(property.id);
+    setDeletingProperty(property);
+  };
+
+  const confirmDelete = () => {
+    if (deletingProperty) {
+      deleteMutation.mutate(deletingProperty.id);
+      setDeletingProperty(null);
     }
   };
 
@@ -472,26 +512,28 @@ export function PropertiesPage() {
             className="w-full pl-10 pr-4 py-2 border rounded-md bg-background"
           />
         </div>
-        <select
-          value={filterBuilding}
-          onChange={(e) => setFilterBuilding(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-background"
-        >
-          <option value="">所有建筑</option>
-          {buildings.map((b: string) => (
-            <option key={b} value={b}>{b}</option>
-          ))}
-        </select>
-        <select
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-background"
-        >
-          <option value="">所有状态</option>
-          <option value="已出租">已出租</option>
-          <option value="空置">空置</option>
-          <option value="自用">自用</option>
-        </select>
+        <Select value={filterBuilding} onValueChange={setFilterBuilding}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="所有建筑" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">所有建筑</SelectItem>
+            {buildings.map((b: string) => (
+              <SelectItem key={b} value={b}>{b}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Select value={filterStatus} onValueChange={setFilterStatus}>
+          <SelectTrigger className="w-[140px]">
+            <SelectValue placeholder="所有状态" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">所有状态</SelectItem>
+            <SelectItem value="已出租">已出租</SelectItem>
+            <SelectItem value="空置">空置</SelectItem>
+            <SelectItem value="自用">自用</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       {isLoading ? (
@@ -603,6 +645,19 @@ export function PropertiesPage() {
           onSave={handleSaveEdit}
         />
       )}
+
+      {/* Delete Confirmation */}
+      <AlertDialog
+        open={!!deletingProperty}
+        onOpenChange={(open) => !open && setDeletingProperty(null)}
+        title="删除房源"
+        description={deletingProperty ? `确定要删除房源 "${deletingProperty.title}" 吗？此操作不可撤销。` : undefined}
+        confirmText="删除"
+        cancelText="取消"
+        variant="destructive"
+        loading={deleteMutation.isPending}
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 }
